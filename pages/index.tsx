@@ -2,6 +2,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 
 import { getGithubPreviewProps, parseJson } from "next-tinacms-github";
+
 import { GetStaticProps } from "next";
 
 import {
@@ -11,15 +12,15 @@ import {
 } from "react-tinacms-inline";
 import { usePlugin } from "tinacms";
 import { useGithubJsonForm } from "react-tinacms-github";
-import { heroBlock } from "../components/Hero";
-
-import { imagesBlock } from "../components/Images";
-import { paragraphBlock } from "../components/Paragraph";
 
 export default function Home({ file }) {
   const formOptions = {
     label: "Home Page",
-    fields: [{ name: "title", component: "text" }],
+    fields: [
+      { name: "title", component: "text" },
+      { name: "hero", component: "textarea" },
+      { name: "about", component: "textarea" },
+    ],
   };
 
   // Registers a JSON Tina Form
@@ -34,13 +35,14 @@ export default function Home({ file }) {
       </Head>
 
       <main className={styles.main}>
-        <InlineForm form={form}>
-          <h1 className={styles.title}>
-            <InlineTextField name="title" />
-          </h1>
+        <h1 className={styles.title}>{data.title}</h1>
 
-          <InlineBlocks name="blocks" blocks={HOME_BLOCKS} />
-        </InlineForm>
+        <div>{data.hero}</div>
+
+        <div>
+          <h2>About</h2>
+          <p>{data.about}</p>
+        </div>
       </main>
 
       <footer className={styles.footer}>
@@ -56,8 +58,6 @@ export default function Home({ file }) {
     </div>
   );
 }
-
-const HOME_BLOCKS = { heroBlock, imagesBlock, paragraphBlock };
 
 /**
  * Fetch data with getStaticProps based on 'preview' mode
