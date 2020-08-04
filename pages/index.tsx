@@ -1,14 +1,13 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-
+import { MarkdownFieldPlugin } from "react-tinacms-editor";
+import { usePlugins } from "tinacms";
 import { getGithubPreviewProps, parseJson } from "next-tinacms-github";
-
 import { GetStaticProps } from "next";
-
 import {
+  InlineText,
   InlineForm,
-  InlineTextField,
-  InlineBlocks,
+  InlineTextarea,
 } from "react-tinacms-inline";
 import { usePlugin } from "tinacms";
 import { useGithubJsonForm } from "react-tinacms-github";
@@ -20,8 +19,15 @@ export default function Home({ file }) {
       { name: "title", component: "text" },
       { name: "hero", component: "textarea" },
       { name: "about", component: "textarea" },
+      {
+        name: "markdownContent",
+        label: "content",
+        component: "markdown",
+      },
     ],
   };
+
+  usePlugins([MarkdownFieldPlugin]);
 
   // Registers a JSON Tina Form
   const [data, form] = useGithubJsonForm(file, formOptions);
@@ -35,14 +41,38 @@ export default function Home({ file }) {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>{data.title}</h1>
+        <InlineForm form={form}>
+          <header>
+            <h1 className={styles.title}>
+              <InlineText name="title" />
+            </h1>
+            <div />
+          </header>
 
-        <div>{data.hero}</div>
+          <div className={styles.hero}>
+            <InlineTextarea name="hero" />
+          </div>
 
-        <div>
-          <h2>About</h2>
-          <p>{data.about}</p>
-        </div>
+          <div>
+            <h2>Services</h2>
+            <InlineTextarea name="about" />
+          </div>
+
+          <div className={styles.row}>
+            <div className={styles.col}>
+              <h3>Editing</h3>
+              <InlineTextarea name="editing" />
+            </div>
+            <div className={styles.col}>
+              <h3>Translation</h3>
+              <InlineTextarea name="translation" />
+            </div>
+            <div className={styles.col}>
+              <h3>Proofreading</h3>
+              <InlineTextarea name="proofreading" />
+            </div>
+          </div>
+        </InlineForm>
       </main>
 
       <footer className={styles.footer}>

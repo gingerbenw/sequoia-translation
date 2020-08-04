@@ -121,3 +121,22 @@
     flex-direction: column;
   }
 }
+
+.hero {
+  background-image: linear-gradient(
+      rgba(51, 51, 51, 0.52),
+      rgba(51, 51, 51, 0.52)
+    ),
+    url("/hero.png");
+  background-size: cover;
+  color: white;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  flex: 1;
+}
