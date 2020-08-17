@@ -1,9 +1,11 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import { MarkdownFieldPlugin } from "react-tinacms-editor";
+import { MarkdownFieldPlugin, InlineWysiwyg } from "react-tinacms-editor";
 import { usePlugins } from "tinacms";
 import { getGithubPreviewProps, parseJson } from "next-tinacms-github";
 import { GetStaticProps } from "next";
+import ReactMarkdown from 'react-markdown'
+
 import {
   InlineText,
   InlineForm,
@@ -60,8 +62,9 @@ export default function Home({ file }) {
 
           <div className={styles.row}>
             <div className={styles.col}>
-              <h3>Editing</h3>
-              <InlineTextarea name="editing" />
+              <InlineWysiwyg name="content" >
+                <ReactMarkdown source={data.content} />
+              </InlineWysiwyg>
             </div>
             <div className={styles.col}>
               <h3>Translation</h3>
