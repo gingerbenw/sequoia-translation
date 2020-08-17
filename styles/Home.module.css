@@ -128,8 +128,13 @@
       rgba(51, 51, 51, 0.52)
     ),
     url("/hero.png");
+  height: 100vh;
+  width: 100%;
   background-size: cover;
   color: white;
+  display: flex;
+  align-items: center;
+  padding: 30px;
 }
 
 .row {
