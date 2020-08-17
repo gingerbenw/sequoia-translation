@@ -1,10 +1,9 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import { MarkdownFieldPlugin, InlineWysiwyg } from "react-tinacms-editor";
+import { MarkdownFieldPlugin } from "react-tinacms-editor";
 import { usePlugins } from "tinacms";
 import { getGithubPreviewProps, parseJson } from "next-tinacms-github";
 import { GetStaticProps } from "next";
-import ReactMarkdown from 'react-markdown'
 
 import {
   InlineText,
@@ -20,12 +19,6 @@ export default function Home({ file }) {
     fields: [
       { name: "title", component: "text" },
       { name: "hero", component: "textarea" },
-      { name: "about", component: "textarea" },
-      {
-        name: "markdownContent",
-        label: "content",
-        component: "markdown",
-      },
     ],
   };
 
@@ -36,7 +29,7 @@ export default function Home({ file }) {
   usePlugin(form);
 
   return (
-    <div className={styles.container}>
+    <div >
       <Head>
         <title>{data.title}</title>
         <link rel="icon" href="/favicon.ico" />
@@ -44,6 +37,7 @@ export default function Home({ file }) {
 
       <main className={styles.main}>
         <InlineForm form={form}>
+          {/* TODO: Convert to header component */}
           <header>
             <h1 className={styles.title}>
               <InlineText name="title" />
@@ -51,43 +45,45 @@ export default function Home({ file }) {
             <div />
           </header>
 
+          {/* TODO: Convert to hero component */}
           <div className={styles.hero}>
             <InlineTextarea name="hero" />
           </div>
 
-          <div>
-            <h2>Services</h2>
-            <InlineTextarea name="about" />
+          <div className={styles.about}>
+            <h2>
+              <InlineText name="aboutTitle" />
+            </h2>
+            <InlineTextarea name="aboutText" />
           </div>
+
+          {/* TODO: Convert to BLOCKS */}
+          <div className={styles.container}>
 
           <div className={styles.row}>
             <div className={styles.col}>
-              <InlineWysiwyg name="content" >
-                <ReactMarkdown source={data.content} />
-              </InlineWysiwyg>
+              <h3>
+                <InlineText name="blockOneTitle" />
+              </h3>
+              <InlineTextarea name="blockOneText" />
             </div>
             <div className={styles.col}>
-              <h3>Translation</h3>
-              <InlineTextarea name="translation" />
+              <h3>
+                <InlineText name="blockTwoTitle" />
+              </h3>
+              <InlineTextarea name="blockTwoText" />
             </div>
             <div className={styles.col}>
-              <h3>Proofreading</h3>
-              <InlineTextarea name="proofreading" />
+              <h3>
+                <InlineText name="blockThreeTitle" />
+              </h3>
+              <InlineTextarea name="blockThreeText" />
             </div>
           </div>
+          </div>
+
         </InlineForm>
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          // href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
     </div>
   );
 }
