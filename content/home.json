@@ -17,5 +17,11 @@
   "content": "### Editing\n\nsomething about editing",
   "services": "## Services\n\nWe specialise in translating and refining a wide range of professional, business, legal, educational and technical writing.",
   "aboutTitle": "SERVICES",
-  "aboutText": "We specialise in translating and refining a wide range of professional, business, legal, educational and technical writing."
+  "aboutText": "We specialise in translating and refining a wide range of professional, business, legal, educational and technical writing.",
+  "blockOneText": "Text about editing",
+  "blockOneTitle": "Editing",
+  "blockTwoTitle": "Proofreading",
+  "blockTwoText": "Text about proofreading",
+  "blockThreeTitle": "Translation",
+  "blockThreeText": "Text about translation"
 }
