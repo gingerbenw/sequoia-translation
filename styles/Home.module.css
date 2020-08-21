@@ -41,7 +41,7 @@
     ),
     url("/hero.png");
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   background-size: cover;
   color: white;
   display: flex;
