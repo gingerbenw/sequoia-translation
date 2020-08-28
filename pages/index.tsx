@@ -122,6 +122,18 @@ export default function Home({ file }) {
 						</div>
 					</section>
 
+					<div className={styles.image_break} />
+
+					<section className={styles.about}>
+						<div className={styles.about_intro}>
+							<h2>
+								<InlineText name="contactTitle" />
+							</h2>
+							<InlineTextarea name="contactText" />
+						</div>
+					</section>
+
+
 				</main>
 			</InlineForm>
 		</div>
