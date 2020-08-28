@@ -16,18 +16,40 @@
 
 .row {
   width: 100%;
-  max-width: 700px;
+  max-width: 1200px;
   display: flex;
   flex-direction: row;
+  /* padding: 10px; */
 }
 
 .col {
   flex: 1;
+  margin: 0 30px;
 }
 
 .header {
-  position: sticky;
-  background-color: blue;
+  /* position: fixed; */
+  top: 0;
+  width: 100%;
+  padding: 10px 30px;
+  background-color: #4D7EA8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header_inner {
+  max-width: 1200px;
+  flex: 1;
+}
+
+.title {
+  text-align: left;
+font: normal normal 600 34px/57px 'Baloo Da 2';
+margin: 0;
+letter-spacing: 0px;
+color: #FFFFFF;
+opacity: 1;
 }
 
 .logo {
@@ -39,21 +61,52 @@
       rgba(51, 51, 51, 0.52),
       rgba(51, 51, 51, 0.52)
     ),
-    url("/hero.png");
-  height: 100vh;
+    url("/hero_background.png");
+    background-position: center;
+    background-size: cover;
+    
+  height: 70vh;
   width: 100%;
   background-size: cover;
-  color: white;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 30px;
-  font-size: 30px;
-  font-weight: bold;
 }
 
+.hero_text {
+  text-align: center;
+  font: normal normal normal 36px/46px 'Baloo Da 2';
+  letter-spacing: 1.26px;
+  color: #FFFFFF;
+  opacity: 1;
+  max-width: 900px;
+}
+
+
 .about {
+  padding: 5rem 0;
+  margin-bottom: 3rem;
+}
+
+.about_intro {
   text-align: center;
   max-width: 600px;
   margin: auto;
-  padding: 2rem 0;
+  margin-bottom: 5rem;
+
+  font: normal normal 300 20px/30px Montserrat;
+  letter-spacing: 0px;
+  color: #000000;
+}
+
+.image_break {
+  background-image: url("/notebook_break.png");
+  /* background-position: 0 50% 0; */
+  background-attachment: scroll;
+  background-size: cover;
+  
+  height: 40vh;
+  width: 100%;
+  background-size: cover;
 }
