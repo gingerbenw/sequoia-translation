@@ -44,11 +44,11 @@
 
 .title {
   text-align: left;
-font: normal normal 600 34px/57px 'Baloo Da 2';
-margin: 0;
-letter-spacing: 0px;
-color: #FFFFFF;
-opacity: 1;
+  font: normal normal 600 34px/57px 'Baloo Da 2';
+  margin: 0;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  opacity: 1;
 }
 
 .logo {
@@ -65,7 +65,7 @@ opacity: 1;
   margin: auto;
   margin-bottom: 5rem;
 
-  font: normal normal 300 20px/30px Montserrat;
+  font: normal normal 300 20px/30px 'Montserrat';
   letter-spacing: 0px;
   color: #000000;
 }
@@ -76,5 +76,20 @@ opacity: 1;
   
   height: 40vh;
   width: 100%;
-  background-size: cover;
 }
+
+.footer {
+  background-image: url("/footer.png");
+  background-size: cover;
+  background-position-y: bottom;
+  text-align: center;
+  
+  height: 55vh;
+  width: 100%;
+}
+
+.footer_text {
+  font: normal normal 700 20px/20px 'Baloo Da 2';
+}
+
+

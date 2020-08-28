@@ -133,6 +133,13 @@ export default function Home({ file }) {
 						</div>
 					</section>
 
+					{/* TODO: Get current date for copyright */}
+					<footer className={styles.footer}>
+						<span className={styles.footer_text}>
+							&copy; 2020 {data.title}
+						</span>
+					</footer>
+
 
 				</main>
 			</InlineForm>
