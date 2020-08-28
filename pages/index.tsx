@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import styles from '../styles/Home.module.css';
+import styles from '../styles/Home.module.scss';
 import { MarkdownFieldPlugin } from 'react-tinacms-editor';
 import { usePlugins } from 'tinacms';
 import { getGithubPreviewProps, parseJson } from 'next-tinacms-github';
@@ -13,6 +13,7 @@ import {
 } from 'react-tinacms-inline';
 import { usePlugin } from 'tinacms';
 import { useGithubJsonForm } from 'react-tinacms-github';
+import Hero from '../components/Hero';
 
 export default function Home({ file }) {
 	const formOptions = {
@@ -49,12 +50,8 @@ export default function Home({ file }) {
 					</header>
 
 					{/* TODO: Convert to hero component */}
-					<div className={styles.hero}>
-						<div className={styles.hero_text}> 
-							<InlineTextarea name="hero" />
-						</div>
-					</div>
-
+					<Hero />
+	
 					<section className={styles.about}>
 
 						<div className={styles.about_intro}>
