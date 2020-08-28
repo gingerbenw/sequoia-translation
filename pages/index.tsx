@@ -89,7 +89,7 @@ export default function Home({ file }) {
 						</div>
 					</section>
 
-          <div className={styles.image_break} />
+					<div className={styles.image_break} />
 
 					<section className={styles.about}>
 

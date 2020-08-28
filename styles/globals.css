@@ -30,6 +30,7 @@ h5 {
 h2 {
   font: normal normal bold 22px/28px 'Baloo Da 2';
   letter-spacing: 0.58px;
+  text-transform: uppercase;
   color: #000000;
   opacity: 1;
 }
