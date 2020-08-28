@@ -57,7 +57,6 @@ opacity: 1;
 
 .about {
   padding: 5rem 0;
-  margin-bottom: 3rem;
 }
 
 .about_intro {
@@ -73,8 +72,6 @@ opacity: 1;
 
 .image_break {
   background-image: url("/notebook_break.png");
-  /* background-position: 0 50% 0; */
-  background-attachment: scroll;
   background-size: cover;
   
   height: 40vh;
