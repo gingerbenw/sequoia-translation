@@ -45,11 +45,11 @@ export default class Site extends App {
   				onLogout={onLogout}
   				error={pageProps.error}
   			>
+  				<Component {...pageProps} />
   				{/**
            * 5. Add a button for entering Preview/Edit Mode
            */}
   				<EditLink cms={this.cms} />
-  				<Component {...pageProps} />
   			</TinacmsGithubProvider>
   		</TinaProvider>
   	);
