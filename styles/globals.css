@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@600;700&family=Montserrat:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@600;700&family=Montserrat:wght@300&display=swap");
 
 html,
 body {
@@ -31,7 +31,7 @@ h2 {
   font: normal normal bold 22px/28px 'Baloo Da 2';
   letter-spacing: 0.58px;
   text-transform: uppercase;
-  color: #000000;
+  color: #333;
   opacity: 1;
 }
 
@@ -39,13 +39,13 @@ h3 {
   font: normal normal 600 26px/32px 'Baloo Da 2';
   margin-bottom: 15px;
   letter-spacing: 0px;
-  color: #000000;
+  color: #333;
   opacity: 1;
 }
 
 p, body {
   font: normal normal 300 16px/26px 'Montserrat';
   letter-spacing: 0px;
-  color: #000000;
+  color: #333;
   opacity: 1;
 }
