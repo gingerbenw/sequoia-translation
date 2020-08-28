@@ -136,7 +136,7 @@ export default function Home({ file }) {
 					{/* TODO: Get current date for copyright */}
 					<footer className={styles.footer}>
 						<span className={styles.footer_text}>
-							&copy; 2020 {data.title}
+							&copy; 2020 <InlineText name="companyName" />
 						</span>
 					</footer>
 
