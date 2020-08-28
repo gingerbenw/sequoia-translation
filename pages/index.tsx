@@ -13,7 +13,6 @@ import {
 } from 'react-tinacms-inline';
 import { usePlugin } from 'tinacms';
 import { useGithubJsonForm } from 'react-tinacms-github';
-import ParallaxImage from '../components/ParallaxImage';
 
 export default function Home({ file }) {
 	const formOptions = {
