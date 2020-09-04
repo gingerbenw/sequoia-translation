@@ -34,7 +34,7 @@ export const ContactForm = () => {
 
 			<form
 				onSubmit={submitForm}
-				action="https://formspree.io/mjvanvbz"
+				action={process.env.CONTACT_FORM_URL}
 				method="POST"
 			>
 				<label>Email:</label>
