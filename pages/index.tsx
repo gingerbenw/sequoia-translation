@@ -14,6 +14,7 @@ import {
 import { usePlugin } from 'tinacms';
 import { useGithubJsonForm } from 'react-tinacms-github';
 import Hero from '../components/Hero';
+import ContactForm from '../components/ContactForm';
 
 export default function Home({ file }) {
 	const formOptions = {
@@ -131,6 +132,8 @@ export default function Home({ file }) {
 							</h2>
 							<InlineTextarea name="contactText" />
 						</div>
+
+						<ContactForm />
 					</section>
 
 					{/* TODO: Get current date for copyright */}

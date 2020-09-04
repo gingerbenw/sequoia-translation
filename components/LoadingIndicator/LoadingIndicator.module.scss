@@ -1,0 +1,51 @@
+$size: 40px;
+$point: #4D7EA8;
+$gray1: #eee;
+$gray2: #ccc;
+$gray3: #aaa;
+$bdw: 4px;
+$big: 1.6;
+$small: 0.625;
+
+@keyframes up {
+	50% {
+		top: 0;
+		background-color: $gray2;
+	}
+	100% {
+		top: -20px;
+		background-color: $point;
+	}
+}
+
+
+.container {
+	width: $bdw * 2;
+	height: $bdw * 2;
+
+	position: relative
+}
+
+.dot {
+	width: $bdw * 2;
+	height: $bdw * 2;
+	background-color: $gray2;
+	border-radius: 50%;
+	
+	position: absolute;
+	animation: up 1.2s alternate infinite;
+
+	&.dot1 {
+		left: -20px;
+	}
+
+	&.dot2 {
+		animation-delay: .4s;
+	}
+
+	&.dot3 {
+		right: -20px;
+		animation-delay: .8s;
+	}
+}
+
