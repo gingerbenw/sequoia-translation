@@ -1,5 +1,8 @@
 {
   "title": "Sequoia Translation",
+  "link_services": "SERVICES",
+  "link_about": "ABOUT",
+  "link_contact": "CONTACT",
   "headline": "Headline to go in the hero",
   "blocks": [
     {
