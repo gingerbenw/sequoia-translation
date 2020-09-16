@@ -3,7 +3,7 @@ import styles from './ContactForm.module.scss';
 import LoadingIndicator from '../LoadingIndicator';
 
 export const ContactForm = () => {
-	const [status, setStatus] = useState('success');
+	const [status, setStatus] = useState('initial');
 
 	const submitForm = (e) => {
 		e.preventDefault();
