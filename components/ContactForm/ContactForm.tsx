@@ -3,7 +3,7 @@ import styles from './ContactForm.module.scss';
 import LoadingIndicator from '../LoadingIndicator';
 
 export const ContactForm = () => {
-	const [status, setStatus] = useState('initial');
+	const [status, setStatus] = useState('success');
 
 	const submitForm = (e) => {
 		e.preventDefault();
@@ -31,16 +31,17 @@ export const ContactForm = () => {
 
 	return (
 		<div className={styles.contact}>
-
 			<form
 				onSubmit={submitForm}
 				action={process.env.CONTACT_FORM_URL}
 				method="POST"
 			>
-				<label>Email:</label>
-				<input type="email" name="email" />
-				<label>Message:</label>
-				<input type="text" name="message" />
+				<label>Name</label>
+				<input type="name" name="name" placeholder="Name" />
+				<label>Email</label>
+				<input type="email" name="email" placeholder="Email" />
+				<label>Message</label>
+				<textarea name="message" placeholder="Message" rows={5} />
 
 				{status === 'initial' && <button>Submit</button>}
 				{status === 'loading' && <LoadingIndicator />}
