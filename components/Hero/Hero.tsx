@@ -1,19 +1,18 @@
 import React from 'react';
-import { InlineTextarea, BlocksControls } from 'react-tinacms-inline';
+import { InlineTextarea, BlocksControls, Block } from 'react-tinacms-inline';
 import styles from './Hero.module.scss';
 
-export const Hero =  () => {
+export function Hero() {
 	return (
 		<div className={styles.hero}>
 			<div className={styles.hero_text}> 
-				<InlineTextarea name="hero" />
+				<InlineTextarea name="text" />
 			</div>
 		</div>
 	);
-};
+}
 
-// 2. Define the block component with Hero
-export const heroBlock = {
+export const heroBlock: Block = {
 	Component: ({ index }) => (
 		<BlocksControls index={index}
 			focusRing={{ offset: 0 }}
@@ -25,7 +24,7 @@ export const heroBlock = {
 	template: {
 		label: 'Hero',
 		defaultItem: {
-			headline: 'Suspended in a Sunbeam',
+			text: 'Suspended in a Sunbeam',
 		},
 		fields: [],
 	},

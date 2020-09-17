@@ -3,18 +3,13 @@
   "headline": "Headline to go in the hero",
   "blocks": [
     {
-      "_template": "heroBlock",
-      "headline": "Hero text goes here"
-    },
-    {
-      "_template": "paragraphBlock",
-      "text": "Take root and flourish quis nostrum exercitationem ullam corporis suscipit laboriosam culture Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur descended from astronomers encyclopaedia galactica? Nisi ut aliquid ex ea commodi consequatur something incredible is waiting to be known sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem "
+      "_template": "section",
+      "title": "Title",
+      "text": "Here is some text"
     }
   ],
   "hero": "Experts in high quality Japanese - English translation, editing and proofreading",
   "about": "We specialise in translating and refining a wide range of professional, business, legal, educational and technical writing.",
-  "content": "### Editing\n\nsomething about editing",
-  "services": "## Services\n\nWe specialise in translating and refining a wide range of professional, business, legal, educational and technical writing.",
   "aboutTitle": "About",
   "aboutText": "​We are committed to delivering top quality service and to building and maintaining the highest levels of client satisfaction and long term trust.",
   "blockOneText": "Some clients wish to refine their writing, such as adapting or enhance the tone and writing style for specific audiences, simplify it to ease understanding, and raise the level of professionalism. We refine written work from many business sectors and tailor them to suite a wide range of readers.",
@@ -34,6 +29,6 @@
   "contactTitle": "Contact",
   "contactText": "Get in touch to discuss...",
   "companyName": "Sequoia Transactions",
-  "thanks message": "Thanks for your message!",
+  "thanksMessage": "Thanks for your message!",
   "text": "Experts in high quality Japanese - English translation, editing and proofreading"
 }
