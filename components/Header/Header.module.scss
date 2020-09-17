@@ -1,0 +1,25 @@
+$primary-color: #4D7EA8;
+
+.header {
+    top: 0;
+    width: 100%;
+    padding: 10px 30px;
+    background-color: $primary-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .header_inner {
+    max-width: 1200px;
+    flex: 1;
+  }
+  
+  .title {
+    text-align: left;
+    font: normal normal 600 34px/57px 'Baloo Da 2';
+    margin: 0;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+  }

@@ -15,6 +15,7 @@ import { usePlugin } from 'tinacms';
 import { useGithubJsonForm } from 'react-tinacms-github';
 import Hero from '../components/Hero';
 import ContactForm from '../components/ContactForm';
+import Header from '../components/Header';
 
 export default function Home({ file }) {
 	const formOptions = {
@@ -40,17 +41,9 @@ export default function Home({ file }) {
 
 			<InlineForm form={form}>
 				<main className={styles.main}>
-          
-					{/* TODO: Convert to header component */}
-					<header className={styles.header}>
-						<div className={styles.header_inner}>
-							<h1 className={styles.title}>
-								<InlineText name="title" />
-							</h1>
-						</div>
-					</header>
 
-					{/* TODO: Convert to hero component */}
+					<Header />
+
 					<Hero />
 	
 					<section className={styles.about}>
