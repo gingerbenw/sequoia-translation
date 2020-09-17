@@ -2,7 +2,7 @@ import { GetStaticProps } from 'next';
 import { getGithubPreviewProps, parseJson } from 'next-tinacms-github';
 import Head from 'next/head';
 import React from 'react';
-import { useGithubJsonForm, useGithubToolbarPlugins } from 'react-tinacms-github';
+import { useGithubJsonForm } from 'react-tinacms-github';
 import {
 	InlineBlocks,
 	InlineForm,
