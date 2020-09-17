@@ -49,3 +49,8 @@ p, body, input, textarea {
   color: #333;
   opacity: 1;
 }
+
+::selection {
+  background: #4D7EA8;
+  color: white;
+}
