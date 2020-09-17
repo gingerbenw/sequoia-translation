@@ -23,6 +23,28 @@
       ],
       "title": "Services",
       "text": "We specialize in translating and refining a wide range of professional, business, legal, educational and technical writing."
+    },
+    {
+      "_template": "section",
+      "title": "About",
+      "text": "We are committed to delivering top quality service and to building and maintaining the highest levels of client satisfaction and long term trust.",
+      "columns": [
+        {
+          "_template": "column",
+          "title": "Approach",
+          "text": "We first confirm any cultural sensibilities, nuances and formalities which clients may want to be conveyed. We confirm the target audience and any requirements such as the tone, style and format that are to be reflected in the work."
+        },
+        {
+          "_template": "column",
+          "title": "Team",
+          "text": "We're a team of professional, native Japanese and English speakers, with a deep understanding of Japanese culture and international business and years of experience in drafting, editing and teaching the skill of drafting high quality writing."
+        },
+        {
+          "_template": "column",
+          "title": "Guaranteed",
+          "text": "Dissatisfaction is not an option. If you are not fully satisfied with our work, we will revise it at no extra charge. \n\nIf you are still unhappy, we will provide a full refund"
+        }
+      ]
     }
   ],
   "hero": "Experts in high quality Japanese - English translation, editing and proofreading",
