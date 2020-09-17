@@ -25,6 +25,10 @@
       "text": "We specialize in translating and refining a wide range of professional, business, legal, educational and technical writing."
     },
     {
+      "_template": "image",
+      "src": "/notebook_break.png"
+    },
+    {
       "_template": "section",
       "title": "About",
       "text": "We are committed to delivering top quality service and to building and maintaining the highest levels of client satisfaction and long term trust.",
@@ -45,6 +49,10 @@
           "text": "Dissatisfaction is not an option. If you are not fully satisfied with our work, we will revise it at no extra charge. \n\nIf you are still unhappy, we will provide a full refund"
         }
       ]
+    },
+    {
+      "_template": "image",
+      "src": "/notebook_break.png"
     }
   ],
   "hero": "Experts in high quality Japanese - English translation, editing and proofreading",
