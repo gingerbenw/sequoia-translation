@@ -3,52 +3,8 @@
   "headline": "Headline to go in the hero",
   "blocks": [
     {
-      "_template": "section",
-      "columns": [
-        {
-          "_template": "column",
-          "title": "Editing",
-          "text": "Some clients wish to refine their writing, such as to adapt or enhance the tone and writing style for specific audiences, simplify it to ease understanding, and raise the level of professionalism. We refine written work from many business sectors and tailor them to suite a wide range of readers."
-        },
-        {
-          "_template": "column",
-          "title": "Proofreading",
-          "text": "All of our translations are reviewed and refined by a native English speaker and US lawyer with over 25 years of experience working internationally as a general counsel for major global corporations and technology ventures."
-        },
-        {
-          "_template": "column",
-          "title": "Translation",
-          "text": "Our proofreading works to ensure the accuracy and consistency of a document's syntax, spelling, grammar, punctuation and formatting. \n\nWe can perform this independently or as part of our editing services."
-        }
-      ],
-      "title": "Services",
-      "text": "We specialize in translating and refining a wide range of professional, business, legal, educational and technical writing."
-    },
-    {
       "_template": "image",
       "src": "/notebook_break.png"
-    },
-    {
-      "_template": "section",
-      "title": "About",
-      "text": "We are committed to delivering top quality service and to building and maintaining the highest levels of client satisfaction and long term trust.",
-      "columns": [
-        {
-          "_template": "column",
-          "title": "Approach",
-          "text": "We first confirm any cultural sensibilities, nuances and formalities which clients may want to be conveyed. We confirm the target audience and any requirements such as the tone, style and format that are to be reflected in the work."
-        },
-        {
-          "_template": "column",
-          "title": "Team",
-          "text": "We're a team of professional, native Japanese and English speakers, with a deep understanding of Japanese culture and international business and years of experience in drafting, editing and teaching the skill of drafting high quality writing."
-        },
-        {
-          "_template": "column",
-          "title": "Guaranteed",
-          "text": "Dissatisfaction is not an option. If you are not fully satisfied with our work, we will revise it at no extra charge. \n\nIf you are still unhappy, we will provide a full refund"
-        }
-      ]
     },
     {
       "_template": "image",
@@ -77,5 +33,5 @@
   "contactText": "Get in touch to discuss...",
   "companyName": "Sequoia Transactions",
   "thanksMessage": "Thanks for your message!",
-  "text": "Experts in high quality Japanese - English translation, editing and proofreading"
+  "text": "Experts in high quality\nJapanese - English\ntranslation, editing-proofreading and native checking"
 }
