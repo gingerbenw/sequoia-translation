@@ -15,14 +15,13 @@
   "about": "We specialise in translating and refining a wide range of professional, business, legal, educational and technical writing.",
   "aboutTitle": "About",
   "aboutText": "​We are committed to delivering top quality service and to building and maintaining the highest levels of client satisfaction and long term trust.",
-  "blockOneText": "Some clients wish to refine their writing, such as to adap or enhance the tone and writing style for specific audiences, simplify it to ease understanding, and raise the level of professionalism. We refine written work from many business sectors and tailor them to suite a wide range of readers.",
-  "blockOneTitle": "Editing",
-  "blockTwoTitle": "Proof-reading",
-  "blockTwoText": "All of our translations are reviewed and refined by a native English speaker and US lawyer with over 25 years of experience working internationally as a general counsel for major global corporations and technology ventures..",
-  "blockThreeTitle": "Translation",
-  "blockThreeText": "Our proofreading works to ensure the accuracy and consistency of a document's syntax, spelling, grammar, punctuation and formatting. \n\nWe can perform this independently or as part of our editing services.",
+  "blockOneText": "We provide high quality Japanese-English translations.\n\nEach translation is reviewed by a native English speaker and US lawyer with over 25 years of experience working internationally as a general counsel for major global corporations and technology ventures.",
+  "blockOneTitle": "Translation",
+  "blockTwoTitle": "Editing-Proofreading",
+  "blockTwoText": "Based on our client’s needs and requests, we refine and check the accuracy of documents to:\n​+ adapt or enhance written tone and\n   writing style for certain audiences\n+ simplify the text to ease understanding\n+ raise the level of professionalism\n+ proofread for proper syntax, spelling, grammar and punctuation.\n",
+  "blockThreeText": "Our native checking works to refine and ensure that the English document is written in a manner which clearly, properly and naturally communicates to English readers.  \n\nIf requested, we will adapt the tone and style to suit different types of audiences.",
   "servicesTitle": "Services",
-  "servicesText": "We specialize in translating and refining a wide range of professional, business, legal, educational and technical writing.",
+  "servicesText": "We specialise in translating, refining and providing native checking for a wide range of business, technical, legal and academic writing.",
   "blockFourTitle": "Approach",
   "blockFiveTitle": "Team",
   "blockSixTitle": "Guaranteed",
@@ -33,5 +32,6 @@
   "contactText": "Get in touch to discuss...",
   "companyName": "Sequoia Transactions",
   "thanksMessage": "Thanks for your message!",
-  "text": "Experts in high quality\nJapanese - English\ntranslation, editing-proofreading and native checking"
+  "text": "Experts in high quality\nJapanese - English\ntranslation, editing-proofreading and native checking",
+  "blockThreeTitle": "Native Checking"
 }
