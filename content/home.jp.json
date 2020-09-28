@@ -23,5 +23,6 @@
   "Name label": "名前",
   "Email label": "Eメール",
   "Message label": "メッサージ",
-  "thanksMessage": "ありがとうございます"
+  "thanksMessage": "ありがとうございます",
+  "Submit label": "送る"
 }
