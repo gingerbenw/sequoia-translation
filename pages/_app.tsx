@@ -17,6 +17,7 @@ export default class Site extends App {
   				authCallbackRoute: '/api/create-github-access-token',
   				clientId: process.env.GITHUB_CLIENT_ID,
   				baseRepoFullName: process.env.REPO_FULL_NAME,
+  				baseBranch: process.env.BASE_BRANCH
   			}),
   		},
   		sidebar: props.pageProps.preview,
@@ -25,7 +26,8 @@ export default class Site extends App {
   }
 
   render() {
-  	const { Component, pageProps } = this.props;
+	  const { Component, pageProps } = this.props;
+	  
   	return (
   		<TinaProvider cms={this.cms}>
   			<TinacmsGithubProvider
