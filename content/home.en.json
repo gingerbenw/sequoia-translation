@@ -22,5 +22,6 @@
   "Name label": "Name",
   "Email label": "Email",
   "Message label": "Message",
-  "Submit label": "Submit"
+  "Submit label": "Submit",
+  "heroImage": "../footer.png"
 }
