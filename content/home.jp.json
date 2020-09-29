@@ -24,5 +24,6 @@
   "Email label": "Eメール",
   "Message label": "メッサージ",
   "thanksMessage": "ありがとうございます",
-  "Submit label": "送る"
+  "Submit label": "送る",
+  "heroImage": "../hero_background.jpg"
 }
