@@ -4,7 +4,6 @@ import Head from 'next/head';
 import React from 'react';
 import { useGithubJsonForm } from 'react-tinacms-github';
 import {
-	InlineBlocks,
 	InlineForm,
 	InlineText,
 	InlineTextarea,
@@ -13,12 +12,7 @@ import { usePlugin } from 'tinacms';
 import ContactForm from '../components/ContactForm';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
-import { sectionBlock } from '../components/Section';
 import styles from '../styles/Home.module.scss';
-
-const PAGE_BLOCKS = {
-	section: sectionBlock
-};
 
 export default function Home({ file }) {
 	const formOptions = {
@@ -44,8 +38,6 @@ export default function Home({ file }) {
 				<main className={styles.main}>
 					<Header />
 					<Hero />
-
-					<InlineBlocks name="blocks" blocks={PAGE_BLOCKS} />
 	
 					<section className={styles.about}>
 

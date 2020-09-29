@@ -8,12 +8,15 @@ $primary-color: #4d7ea8;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: sticky;
 }
 
 .header_inner {
   max-width: 1200px;
-  flex: 1;
   flex-direction: row;
+  flex: 1;
+  align-items: center;
+  justify-items: space-between;
 }
 
 .title {
@@ -23,8 +26,27 @@ $primary-color: #4d7ea8;
   letter-spacing: 0px;
   color: #ffffff;
   opacity: 1;
+  display: inline;
 }
 
 .nav {
-  display: inline;
+  display: inline-flex;
+  align-items: center;
+  justify-items: flex-end;
+  flex: 1;
+}
+
+ul.menu {
+  margin: 0;
+  list-style: none;
+  display: flex;
+
+  li {
+    margin-right: 20px;
+    color: white;
+
+    &:hover {
+      color: white;
+    }
+  }
 }

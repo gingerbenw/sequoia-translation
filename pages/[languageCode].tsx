@@ -1,37 +1,36 @@
-import { GetStaticProps } from 'next';
 import { getGithubPreviewProps, parseJson } from 'next-tinacms-github';
 import Head from 'next/head';
 import React from 'react';
 import { useGithubJsonForm } from 'react-tinacms-github';
 import {
-	InlineBlocks,
 	InlineForm,
 	InlineText,
 	InlineTextarea,
 } from 'react-tinacms-inline';
 import { usePlugin } from 'tinacms';
 import ContactForm from '../components/ContactForm';
+import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
-import { sectionBlock } from '../components/Section';
 import styles from '../styles/Home.module.scss';
 
-const PAGE_BLOCKS = {
-	section: sectionBlock
-};
-
-export default function Home({ file }) {
+export default function Home(props) {
 
 	const formOptions = {
 		label: 'Home page',
 		fields: [
 			{ name: 'title', component: 'text' },
+			{ name: 'heroImage', label: 'Hero image', component: 'image' },
+			{ name: 'Name label', component: 'text' },
+			{ name: 'Email label', component: 'text' },
+			{ name: 'Message label', component: 'text' },
+			{ name: 'Submit label', component: 'text' },
 			{ name: 'thanksMessage', component: 'text' },
 		],
 	};
 
 	// Registers a JSON Tina Form
-	const [data, form] = useGithubJsonForm(file, formOptions);
+	const [data, form] = useGithubJsonForm(props.file, formOptions);
 	usePlugin(form);
 
 	return (
@@ -43,12 +42,10 @@ export default function Home({ file }) {
 
 			<InlineForm form={form} >
 				<main className={styles.main}>
-					<Header />
+					<Header {...data} />
 					<Hero />
-
-					<InlineBlocks name="blocks" blocks={PAGE_BLOCKS} />
 	
-					<section className={styles.about}>
+					<section className={styles.about} id={data.servicesTitle}>
 
 						<div className={styles.about_intro}>
 							<h2>
@@ -84,7 +81,7 @@ export default function Home({ file }) {
 
 					<div className={styles.image_break} />
 
-					<section className={styles.about}>
+					<section className={styles.about}  id={data.aboutTitle}>
 
 						<div className={styles.about_intro}>
 							<h2>
@@ -120,7 +117,7 @@ export default function Home({ file }) {
 
 					<div className={styles.image_break} />
 
-					<section className={styles.about}>
+					<section className={styles.about} id={data.contactTitle}>
 						<div className={styles.about_intro}>
 							<h2>
 								<InlineText name="contactTitle" />
@@ -138,6 +135,7 @@ export default function Home({ file }) {
 						</span>
 					</footer>
 
+					<Footer />
 
 				</main>
 			</InlineForm>
@@ -148,7 +146,7 @@ export default function Home({ file }) {
 /**
  * Fetch data with getStaticProps based on 'preview' mode
  */
-export const getStaticProps: GetStaticProps = async function ({
+export const getStaticProps = async function ({
 	preview,
 	previewData,
 	params,

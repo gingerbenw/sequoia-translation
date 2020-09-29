@@ -37,14 +37,14 @@ export const ContactForm = () => {
 				action={process.env.CONTACT_FORM_URL}
 				method="POST"
 			>
-				<label className={styles.label}>Name</label>
-				<input type="name" name="name" placeholder="Name" className={styles.input} />
-				<label className={styles.label}>Email</label>
-				<input type="email" name="email" placeholder="Email" className={styles.input} />
-				<label className={styles.label}>Message</label>
-				<textarea name="message" placeholder="Message" rows={5} className={styles.input} />
+				<label className={styles.label}><InlineText name="Name label" /></label>
+				<input type="name" name="name" className={styles.input} />
+				<label className={styles.label}><InlineText name="Email label" /></label>
+				<input type="email" name="email" className={styles.input} />
+				<label className={styles.label}><InlineText name="Message label" /></label>
+				<textarea name="message" rows={5} className={styles.input} />
 
-				{status === 'initial' && <button className={styles.button}>Submit</button>}
+				{status === 'initial' && <button className={styles.button}><InlineText name="Submit label" /></button>}
 				{status === 'loading' && <LoadingIndicator />}
 				{status === 'success' && <InlineText name="thanksMessage" />}
 				{status === 'error' && <p>Ooops! There was an error.</p>}

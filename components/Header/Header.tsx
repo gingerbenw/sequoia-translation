@@ -1,11 +1,11 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-
 import { InlineText } from 'react-tinacms-inline';
 import styles from './Header.module.scss';
 
-export const Header =  () => {
+export const Header =  ({ servicesTitle, aboutTitle, contactTitle }) => {
 	const router = useRouter();
+	const { languageCode } = router.query;
 
 	const handleLanguageSelect = ({ target }) => {
 		router.push(`/${target.value}`);
@@ -19,14 +19,20 @@ export const Header =  () => {
 					<InlineText name="title" />
 				</h1>
 				<nav className={styles.nav}>
-					<ul>
-						<li>Services</li>
-						<li>About</li>
-						<li>Contact</li>
+					<ul className={styles.menu}>
+						<a href={`#${servicesTitle}`}>
+							<li>{servicesTitle}</li>
+						</a>
+						<a href={`#${aboutTitle}`}>
+							<li>{aboutTitle}</li>
+						</a>
+						<a href={`#${contactTitle}`}>
+							<li>{contactTitle}</li>
+						</a>
 					</ul>
-					<select value={router.query.languageCode} onChange={handleLanguageSelect}>
+					<select value={languageCode} onChange={handleLanguageSelect}>
 						<option value="en">English</option>
-						<option value="jp">Japanese</option>
+						<option value="jp">日本語</option>
 					</select>
 				</nav>
 			</div>

@@ -1,8 +1,17 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
 import App from 'next/app';
 import React from 'react';
 import { TinaCMS, TinaProvider } from 'tinacms';
 import { GithubClient, TinacmsGithubProvider } from 'react-tinacms-github';
 import '../styles/globals.css';
+
+const githubClient = new GithubClient({
+	proxy: '/api/proxy-github',
+	authCallbackRoute: '/api/create-github-access-token',
+	clientId: process.env.GITHUB_CLIENT_ID,
+	baseRepoFullName: process.env.REPO_FULL_NAME,
+	baseBranch: process.env.BASE_BRANCH,
+}); 
 
 export default class Site extends App {
   cms: TinaCMS
@@ -12,14 +21,8 @@ export default class Site extends App {
   	this.cms = new TinaCMS({
   		enabled: !!props.pageProps.preview,
   		apis: {
-  			github: new GithubClient({
-  				proxy: '/api/proxy-github',
-  				authCallbackRoute: '/api/create-github-access-token',
-  				clientId: process.env.GITHUB_CLIENT_ID,
-  				baseRepoFullName: process.env.REPO_FULL_NAME,
-  				baseBranch: process.env.BASE_BRANCH
-  			}),
-  		},
+  			github: githubClient,
+		  },
   		sidebar: props.pageProps.preview,
   		toolbar: props.pageProps.preview,
   	});
