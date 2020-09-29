@@ -4,29 +4,61 @@ import React from 'react';
 import { useGithubJsonForm } from 'react-tinacms-github';
 import {
 	InlineForm,
+	InlineImage,
 	InlineText,
 	InlineTextarea,
 } from 'react-tinacms-inline';
-import { usePlugin } from 'tinacms';
+import { useCMS, usePlugin } from 'tinacms';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import styles from '../styles/Home.module.scss';
+import * as yaml from 'js-yaml';
+
+function toMarkdownString(formValues) {
+	return (
+		'---\n' +
+      yaml.dump(formValues.frontmatter) +
+      '---\n' +
+      (formValues.markdownBody || '')
+	);
+}
 
 export default function Home(props) {
+	const cms = useCMS();
 
 	const formOptions = {
 		label: 'Home page',
 		fields: [
 			{ name: 'title', component: 'text' },
-			{ name: 'heroImage', label: 'Hero image', component: 'image' },
+			{
+				name: 'heroImage', 
+				label: 'Hero image', 
+				component: 'image',
+				uploadDir: () => {
+					return '/public/';
+				},
+				parse: filename => `../${filename}`,
+				previewSrc: data => `/${data.heroImage}`,
+			},
 			{ name: 'Name label', component: 'text' },
 			{ name: 'Email label', component: 'text' },
 			{ name: 'Message label', component: 'text' },
 			{ name: 'Submit label', component: 'text' },
 			{ name: 'thanksMessage', component: 'text' },
 		],
+		onSubmit(data) {
+			return cms.api.git.writeToDisk({
+				fileRelativePath: props.fileRelativePath,
+				content: toMarkdownString(data),
+			}).then(() => {
+				return cms.api.git.commit({
+					files: [props.fileRelativePath],
+					message: `Commit from Tina: Update ${data.fileRelativePath}`,
+				});
+			});
+		},
 	};
 
 	// Registers a JSON Tina Form
@@ -43,7 +75,7 @@ export default function Home(props) {
 			<InlineForm form={form} >
 				<main className={styles.main}>
 					<Header {...data} />
-					<Hero />
+					<Hero {...data} />
 	
 					<section className={styles.about} id={data.servicesTitle}>
 
@@ -150,10 +182,7 @@ export const getStaticProps = async function ({
 	preview,
 	previewData,
 	params,
-	...rest
 }) {	
-	console.log({rest });
-
 	if (preview) {
 		return getGithubPreviewProps({
 			...previewData,
@@ -177,11 +206,11 @@ export const getStaticProps = async function ({
 
 export async function getStaticPaths() {
 	return {
+		fallback: true,
 		paths: [
 			{ params: { languageCode: 'en' } },
 			{ params: { languageCode: 'jp' } }
 		],
-		fallback: false
 	};
 }
   

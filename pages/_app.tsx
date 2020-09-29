@@ -2,7 +2,8 @@
 import App from 'next/app';
 import React from 'react';
 import { TinaCMS, TinaProvider } from 'tinacms';
-import { GithubClient, TinacmsGithubProvider } from 'react-tinacms-github';
+import { GithubClient, GithubMediaStore, TinacmsGithubProvider } from 'react-tinacms-github';
+
 import '../styles/globals.css';
 
 const githubClient = new GithubClient({
@@ -13,13 +14,18 @@ const githubClient = new GithubClient({
 	baseBranch: process.env.BASE_BRANCH,
 }); 
 
+const store = new GithubMediaStore(githubClient);
+
 export default class Site extends App {
   cms: TinaCMS
 
   constructor(props) {
   	super(props);
   	this.cms = new TinaCMS({
-  		enabled: !!props.pageProps.preview,
+		  enabled: !!props.pageProps.preview,
+		  media: {
+  			store: store,
+		  },
   		apis: {
   			github: githubClient,
 		  },
