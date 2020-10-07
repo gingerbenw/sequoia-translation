@@ -5,7 +5,7 @@ import styles from './Footer.module.scss';
 
 export interface FooterProps {}
 
-export const Footer: React.FC<FooterProps> = (props) => {
+export const Footer: React.FC<FooterProps> = () => {
 	return (
 		<footer className={styles.footer}>
 			<span className={styles.footer_text}>

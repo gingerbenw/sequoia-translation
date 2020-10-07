@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { GetStaticProps } from 'next';
 import { getGithubPreviewProps, parseJson } from 'next-tinacms-github';
 import Head from 'next/head';
@@ -36,8 +37,8 @@ export default function Home({ file }) {
 
 			<InlineForm form={form} >
 				<main className={styles.main}>
-					<Header />
-					<Hero />
+					<Header {...data} />
+					<Hero {...data} />
 	
 					<section className={styles.about}>
 
