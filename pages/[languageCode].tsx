@@ -1,10 +1,10 @@
+/* eslint-disable react/prop-types */
 import { getGithubPreviewProps, parseJson } from 'next-tinacms-github';
 import Head from 'next/head';
 import React from 'react';
 import { useGithubJsonForm } from 'react-tinacms-github';
 import {
 	InlineForm,
-	InlineImage,
 	InlineText,
 	InlineTextarea,
 } from 'react-tinacms-inline';
@@ -86,7 +86,6 @@ export default function Home(props) {
 							<InlineTextarea name="servicesText" />
 						</div>
 
-						{/* TODO: Convert to BLOCKS */}
 						<div className={styles.container}>
 							<div className={styles.row}>
 								<div className={styles.col}>
@@ -111,8 +110,6 @@ export default function Home(props) {
 						</div>
 					</section>
 
-					<div className={styles.image_break} />
-
 					<section className={styles.about}  id={data.aboutTitle}>
 
 						<div className={styles.about_intro}>
@@ -122,7 +119,6 @@ export default function Home(props) {
 							<InlineTextarea name="aboutText" />
 						</div>
 
-						{/* TODO: Convert to BLOCKS */}
 						<div className={styles.container}>
 							<div className={styles.row}>
 								<div className={styles.col}>
@@ -137,17 +133,9 @@ export default function Home(props) {
 									</h3>
 									<InlineTextarea name="blockFiveText" />
 								</div>
-								<div className={styles.col}>
-									<h3>
-										<InlineText name="blockSixTitle" />
-									</h3>
-									<InlineTextarea name="blockSixText" />
-								</div>
 							</div>
 						</div>
 					</section>
-
-					<div className={styles.image_break} />
 
 					<section className={styles.about} id={data.contactTitle}>
 						<div className={styles.about_intro}>
@@ -159,13 +147,6 @@ export default function Home(props) {
 
 						<ContactForm />
 					</section>
-
-					{/* TODO: Get current date for copyright */}
-					<footer className={styles.footer}>
-						<span className={styles.footer_text}>
-							&copy; 2020 {data.title}
-						</span>
-					</footer>
 
 					<Footer />
 

@@ -24,6 +24,7 @@ export default class Site extends App {
   	this.cms = new TinaCMS({
 		  enabled: !!props.pageProps.preview,
 		  media: {
+  			// @ts-ignore
   			store: store,
 		  },
   		apis: {

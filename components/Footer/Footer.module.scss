@@ -1,2 +1,8 @@
+$primary-color: #4d7ea8;
+$text-color: #ffffff;
+
 .footer {
+  background-color: $primary-color;
+  color: $text-color;
+  width: 100%;
 }
