@@ -43,9 +43,14 @@ h3 {
   opacity: 1;
 }
 
-p, body {
+p, body, input, textarea {
   font: normal normal 300 16px/26px 'Montserrat';
   letter-spacing: 0px;
   color: #333;
   opacity: 1;
+}
+
+::selection {
+  background: #4D7EA8;
+  color: white;
 }

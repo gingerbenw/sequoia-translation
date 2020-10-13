@@ -1,3 +1,5 @@
+$mobile-break-point: 800px;
+
 .main {
   width: 100%;
   flex: 1;
@@ -19,6 +21,10 @@
   max-width: 1200px;
   display: flex;
   flex-direction: row;
+
+  @media only screen and (max-width: $mobile-break-point) {
+    flex-direction: column;
+  }
 }
 
 .col {
@@ -26,37 +32,13 @@
   margin: 0 30px;
 }
 
-.header {
-  /* position: fixed; */
-  top: 0;
-  width: 100%;
-  padding: 10px 30px;
-  background-color: #4D7EA8;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.header_inner {
-  max-width: 1200px;
-  flex: 1;
-}
-
-.title {
-  text-align: left;
-  font: normal normal 600 34px/57px 'Baloo Da 2';
-  margin: 0;
-  letter-spacing: 0px;
-  color: #FFFFFF;
-  opacity: 1;
-}
-
 .logo {
   height: 1em;
 }
 
 .about {
-  padding: 5rem 0;
+  padding: 5rem 15px;
+  width: 100%;
 }
 
 .about_intro {
@@ -82,6 +64,7 @@
   background-image: url("/footer.png");
   background-size: cover;
   background-position-y: bottom;
+  background-position-x: center;
   text-align: center;
   
   height: 55vh;

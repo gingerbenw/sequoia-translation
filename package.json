@@ -16,10 +16,10 @@
     "react-markdown": "^4.3.1",
     "react-tinacms-editor": "^0.25.0",
     "react-tinacms-github": "^0.24.0",
-    "react-tinacms-inline": "^0.24.0",
+    "react-tinacms-inline": "^0.29.0",
     "sass": "^1.26.10",
     "styled-components": "^5.1.1",
-    "tinacms": "^0.24.0"
+    "tinacms": "^0.29.0"
   },
   "devDependencies": {
     "@types/node": "^14.0.27",

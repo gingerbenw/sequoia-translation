@@ -1,31 +1,33 @@
-import React from 'react';
-import Head from 'next/head';
-import styles from '../styles/Home.module.scss';
-import { MarkdownFieldPlugin } from 'react-tinacms-editor';
-import { usePlugins } from 'tinacms';
-import { getGithubPreviewProps, parseJson } from 'next-tinacms-github';
 import { GetStaticProps } from 'next';
-
+import { getGithubPreviewProps, parseJson } from 'next-tinacms-github';
+import Head from 'next/head';
+import React from 'react';
+import { useGithubJsonForm } from 'react-tinacms-github';
 import {
-	InlineText,
+	InlineBlocks,
 	InlineForm,
+	InlineText,
 	InlineTextarea,
 } from 'react-tinacms-inline';
 import { usePlugin } from 'tinacms';
-import { useGithubJsonForm } from 'react-tinacms-github';
-import Hero from '../components/Hero';
 import ContactForm from '../components/ContactForm';
+import Header from '../components/Header';
+import Hero from '../components/Hero';
+import { sectionBlock } from '../components/Section';
+import styles from '../styles/Home.module.scss';
+
+const PAGE_BLOCKS = {
+	section: sectionBlock
+};
 
 export default function Home({ file }) {
 	const formOptions = {
-		label: 'Home Page',
+		label: 'Home page',
 		fields: [
 			{ name: 'title', component: 'text' },
-			{ name: 'hero', component: 'textarea' },
+			{ name: 'thanksMessage', component: 'text' },
 		],
 	};
-
-	usePlugins([MarkdownFieldPlugin]);
 
 	// Registers a JSON Tina Form
 	const [data, form] = useGithubJsonForm(file, formOptions);
@@ -38,20 +40,12 @@ export default function Home({ file }) {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<InlineForm form={form}>
+			<InlineForm form={form} >
 				<main className={styles.main}>
-          
-					{/* TODO: Convert to header component */}
-					<header className={styles.header}>
-						<div className={styles.header_inner}>
-							<h1 className={styles.title}>
-								<InlineText name="title" />
-							</h1>
-						</div>
-					</header>
-
-					{/* TODO: Convert to hero component */}
+					<Header />
 					<Hero />
+
+					<InlineBlocks name="blocks" blocks={PAGE_BLOCKS} />
 	
 					<section className={styles.about}>
 
@@ -139,7 +133,7 @@ export default function Home({ file }) {
 					{/* TODO: Get current date for copyright */}
 					<footer className={styles.footer}>
 						<span className={styles.footer_text}>
-							&copy; 2020 <InlineText name="companyName" />
+							&copy; 2020 {data.title}
 						</span>
 					</footer>
 
