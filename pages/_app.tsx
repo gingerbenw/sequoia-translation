@@ -11,33 +11,33 @@ const githubClient = new GithubClient({
 	authCallbackRoute: '/api/create-github-access-token',
 	clientId: process.env.GITHUB_CLIENT_ID,
 	baseRepoFullName: process.env.REPO_FULL_NAME,
-	baseBranch: process.env.BASE_BRANCH,
-}); 
+	baseBranch: process.env.BASE_BRANCH
+});
 
 const store = new GithubMediaStore(githubClient);
 
 export default class Site extends App {
   cms: TinaCMS
 
-  constructor(props) {
+  constructor (props) {
   	super(props);
   	this.cms = new TinaCMS({
 		  enabled: !!props.pageProps.preview,
 		  media: {
   			// @ts-ignore
-  			store: store,
+  			store: store
 		  },
   		apis: {
-  			github: githubClient,
+  			github: githubClient
 		  },
   		sidebar: props.pageProps.preview,
-  		toolbar: props.pageProps.preview,
+  		toolbar: props.pageProps.preview
   	});
   }
 
-  render() {
+  render () {
 	  const { Component, pageProps } = this.props;
-	  
+
   	return (
   		<TinaProvider cms={this.cms}>
   			<TinacmsGithubProvider
@@ -45,7 +45,7 @@ export default class Site extends App {
   				onLogout={onLogout}
   				error={pageProps.error}
   			>
-  				<Component {...pageProps} />
+  				<Component {...pageProps} language="en" />
   				<EditLink cms={this.cms} />
   			</TinacmsGithubProvider>
   		</TinaProvider>

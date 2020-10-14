@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import { GetStaticProps } from 'next';
 import { getGithubPreviewProps, parseJson } from 'next-tinacms-github';
 import Head from 'next/head';
 import React from 'react';
@@ -7,29 +6,58 @@ import { useGithubJsonForm } from 'react-tinacms-github';
 import {
 	InlineForm,
 	InlineText,
-	InlineTextarea,
+	InlineTextarea
 } from 'react-tinacms-inline';
-import { usePlugin } from 'tinacms';
+import { useCMS, usePlugin } from 'tinacms';
 import ContactForm from '../components/ContactForm';
+import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
+import { toMarkdownString } from '../lib/toMarkdownString';
 import styles from '../styles/Home.module.scss';
 
-export default function Home({ file }) {
+const language = 'en';
+
+export default function Home (props) {
+	const cms = useCMS();
+
 	const formOptions = {
 		label: 'Home page',
 		fields: [
 			{ name: 'title', component: 'text' },
-			{ name: 'thanksMessage', component: 'text' },
+			{
+				name: 'heroImage',
+				label: 'Hero image',
+				component: 'image',
+				uploadDir: () => '/public/',
+				parse: filename => `../${filename}`,
+				previewSrc: data => `/${data.heroImage}`
+			},
+			{ name: 'Name label', component: 'text' },
+			{ name: 'Email label', component: 'text' },
+			{ name: 'Message label', component: 'text' },
+			{ name: 'Submit label', component: 'text' },
+			{ name: 'thanksMessage', component: 'text' }
 		],
+		onSubmit (data) {
+			return cms.api.git.writeToDisk({
+				fileRelativePath: props.fileRelativePath,
+				content: toMarkdownString(data)
+			}).then(() => {
+				return cms.api.git.commit({
+					files: [props.fileRelativePath],
+					message: `Commit from Tina: Update ${data.fileRelativePath}`
+				});
+			});
+		}
 	};
 
 	// Registers a JSON Tina Form
-	const [data, form] = useGithubJsonForm(file, formOptions);
+	const [data, form] = useGithubJsonForm(props.file, formOptions);
 	usePlugin(form);
 
 	return (
-		<div >
+		<div>
 			<Head>
 				<title>{data.title}</title>
 				<link rel="icon" href="/favicon.ico" />
@@ -39,8 +67,8 @@ export default function Home({ file }) {
 				<main className={styles.main}>
 					<Header {...data} />
 					<Hero {...data} />
-	
-					<section className={styles.about}>
+
+					<section className={styles.about} id={data.servicesTitle}>
 
 						<div className={styles.about_intro}>
 							<h2>
@@ -49,7 +77,6 @@ export default function Home({ file }) {
 							<InlineTextarea name="servicesText" />
 						</div>
 
-						{/* TODO: Convert to BLOCKS */}
 						<div className={styles.container}>
 							<div className={styles.row}>
 								<div className={styles.col}>
@@ -74,9 +101,7 @@ export default function Home({ file }) {
 						</div>
 					</section>
 
-					<div className={styles.image_break} />
-
-					<section className={styles.about}>
+					<section className={styles.about} id={data.aboutTitle}>
 
 						<div className={styles.about_intro}>
 							<h2>
@@ -85,34 +110,35 @@ export default function Home({ file }) {
 							<InlineTextarea name="aboutText" />
 						</div>
 
-						{/* TODO: Convert to BLOCKS */}
 						<div className={styles.container}>
 							<div className={styles.row}>
 								<div className={styles.col}>
-									<h3>
-										<InlineText name="blockFourTitle" />
-									</h3>
-									<InlineTextarea name="blockFourText" />
+									<div className={styles.bio}>
+										<img src="misako.jpg" className={styles.portrait} />
+										<div>
+											<h3>
+												<InlineText name="blockFourTitle" />
+											</h3>
+											<InlineTextarea name="blockFourText" />
+										</div>
+									</div>
 								</div>
 								<div className={styles.col}>
-									<h3>
-										<InlineText name="blockFiveTitle" />
-									</h3>
-									<InlineTextarea name="blockFiveText" />
-								</div>
-								<div className={styles.col}>
-									<h3>
-										<InlineText name="blockSixTitle" />
-									</h3>
-									<InlineTextarea name="blockSixText" />
+									<div className={styles.bio}>
+										<img src="misako.jpg" className={styles.portrait} />
+										<div>
+											<h3>
+												<InlineText name="blockFiveTitle" />
+											</h3>
+											<InlineTextarea name="blockFiveText" />
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
 					</section>
 
-					<div className={styles.image_break} />
-
-					<section className={styles.about}>
+					<section className={styles.about} id={data.contactTitle}>
 						<div className={styles.about_intro}>
 							<h2>
 								<InlineText name="contactTitle" />
@@ -123,13 +149,7 @@ export default function Home({ file }) {
 						<ContactForm />
 					</section>
 
-					{/* TODO: Get current date for copyright */}
-					<footer className={styles.footer}>
-						<span className={styles.footer_text}>
-							&copy; 2020 {data.title}
-						</span>
-					</footer>
-
+					<Footer />
 
 				</main>
 			</InlineForm>
@@ -140,15 +160,15 @@ export default function Home({ file }) {
 /**
  * Fetch data with getStaticProps based on 'preview' mode
  */
-export const getStaticProps: GetStaticProps = async function ({
+export const getStaticProps = async function ({
 	preview,
-	previewData,
+	previewData
 }) {
 	if (preview) {
 		return getGithubPreviewProps({
 			...previewData,
-			fileRelativePath: 'content/home.json',
-			parse: parseJson,
+			fileRelativePath: `content/home.${language}.json`,
+			parse: parseJson
 		});
 	}
 	return {
@@ -157,9 +177,9 @@ export const getStaticProps: GetStaticProps = async function ({
 			error: null,
 			preview: false,
 			file: {
-				fileRelativePath: 'content/home.json',
-				data: (await import('../content/home.json')).default,
-			},
-		},
+				fileRelativePath: `content/home.${language}.json`,
+				data: (await import(`../content/home.${language}.json`)).default
+			}
+		}
 	};
 };

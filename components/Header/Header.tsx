@@ -5,9 +5,9 @@ import { InlineText } from 'react-tinacms-inline';
 import styles from './Header.module.scss';
 
 interface HeaderProps {
-	servicesTitle?: string;
-	aboutTitle?: string;
-	contactTitle?: string;
+  servicesTitle?: string;
+  aboutTitle?: string;
+  contactTitle?: string;
 }
 
 export const Header: React.FC<HeaderProps> = ({ servicesTitle, aboutTitle, contactTitle }) => {
@@ -15,7 +15,6 @@ export const Header: React.FC<HeaderProps> = ({ servicesTitle, aboutTitle, conta
 	const { languageCode } = router.query;
 
 	const handleLanguageSelect = ({ target }) => {
-		router.push(`/${target.value}`);
 		localStorage.setItem('selectedLanguage', target.value);
 	};
 
