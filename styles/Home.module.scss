@@ -47,17 +47,22 @@ $mobile-break-point: 800px;
   margin: auto;
   margin-bottom: 5rem;
 
-  font: normal normal 300 20px/30px 'Montserrat';
+  font: normal normal 300 20px/30px "Montserrat";
   letter-spacing: 0px;
   color: #000000;
 }
 
 .image_break {
-  background-image: url("/notebook_break.png");
-  background-size: cover;
-  
   height: 40vh;
   width: 100%;
+  position: relative;
+
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+  }
 }
 
 .footer {
@@ -66,7 +71,7 @@ $mobile-break-point: 800px;
   background-position-y: bottom;
   background-position-x: center;
   text-align: center;
-  
+
   height: 55vh;
   width: 100%;
 }
@@ -75,7 +80,20 @@ $mobile-break-point: 800px;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  font: normal normal 700 20px/20px 'Baloo Da 2';
+  font: normal normal 700 20px/20px "Baloo Da 2";
 }
 
+.bio {
+  display: flex;
+  flex-direction: row;
 
+  h3 {
+    margin-top: 0;
+  }
+}
+
+.portrait {
+  border-radius: 50%;
+  height: 8rem;
+  margin-right: 30px;
+}

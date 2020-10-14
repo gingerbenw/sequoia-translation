@@ -1,25 +1,53 @@
-$primary-color: #4D7EA8;
+$primary-color: #4d7ea8;
 
 .header {
-    top: 0;
-    width: 100%;
-    padding: 10px 30px;
-    background-color: $primary-color;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  top: 0;
+  width: 100%;
+  padding: 10px 30px;
+  background-color: $primary-color;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  display: flex;
+}
+
+.header_inner {
+  max-width: 1200px;
+  flex-direction: row;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-items: space-between;
+}
+
+.title {
+  text-align: left;
+  font: normal normal 600 34px/57px "Baloo Da 2";
+  margin: 0;
+  letter-spacing: 0px;
+  color: #ffffff;
+  opacity: 1;
+  display: inline;
+}
+
+.nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+ul.menu {
+  margin: 0;
+  list-style: none;
+  display: flex;
+
+  li {
+    margin-right: 20px;
+    color: white;
+
+    &:hover {
+      color: white;
+    }
   }
-  
-  .header_inner {
-    max-width: 1200px;
-    flex: 1;
-  }
-  
-  .title {
-    text-align: left;
-    font: normal normal 600 34px/57px 'Baloo Da 2';
-    margin: 0;
-    letter-spacing: 0px;
-    color: #FFFFFF;
-    opacity: 1;
-  }
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BlocksControls, InlineTextarea, BlockComponentProps, InlineText, Block } from 'react-tinacms-inline';
+import { BlocksControls, InlineTextarea, InlineText } from 'react-tinacms-inline';
 
 export function Section() {
 	return (
@@ -10,7 +10,7 @@ export function Section() {
 	);}
 
 // 2. Define the block component with Hero
-export const sectionBlock: Block = {
+export const sectionBlock = {
 	Component: ({ index }) => (
 	  	<BlocksControls index={index} insetControls>
 			<Section />

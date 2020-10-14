@@ -1,27 +1,20 @@
 .hero {
-    background-image: linear-gradient(
-        rgba(0, 0, 0, 0.521),
-        rgba(0, 0, 0, 0.521)
-      ),
-      url("/hero_background.png");
-      background-position: center;
-      background-size: cover;
-      
-    height: 70vh;
-    width: 100%;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 30px;
-  }
-  
-  .hero_text {
-    text-align: center;
-    font: normal normal normal 36px/46px 'Baloo Da 2';
-    letter-spacing: 1.26px;
-    color: #FFFFFF;
-    opacity: 1;
-    max-width: 900px;
-  }
-  
+  background-size: cover;
+  background-position: center;
+  height: 70vh;
+  width: 100%;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.hero_text {
+  text-align: center;
+  font: normal normal normal 36px/46px "Baloo Da 2";
+  letter-spacing: 1.26px;
+  color: #ffffff;
+  opacity: 1;
+  max-width: 900px;
+}
