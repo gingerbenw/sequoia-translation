@@ -23,5 +23,7 @@
   "heroImage": "../hero_background.jpg",
   "blockFourTitle": "David Karl",
   "blockFourText": "David is a US native and Japanese speaker who has worked for over 20 years as a general counsel for international companies in the United States, Europe and the Middle East. During this time he worked extensively in drafting and supervising the editing of a wide range of commercial, legal and training documents, and in teaching writing skills.",
-  "blockFiveText": "Misako is a native Japanese speaker now based in the UK, with extensive experience in teaching Japanese as a foreign language to English speakers and providing Japanese- English translation services. She has also worked for more than 20 years as a special-needs teacher in the Japanese school system."
+  "blockFiveText": "Misako is a native Japanese speaker now based in the UK, with extensive experience in teaching Japanese as a foreign language to English speakers and providing Japanese- English translation services. She has also worked for more than 20 years as a special-needs teacher in the Japanese school system.",
+  "misakoPicture": "../misako.jpg",
+  "davidPicture": "../th.jpeg"
 }
