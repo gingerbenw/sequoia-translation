@@ -1,13 +1,10 @@
 /* eslint-disable react/prop-types */
+import { GetStaticProps } from 'next';
 import { getGithubPreviewProps, parseJson } from 'next-tinacms-github';
 import Head from 'next/head';
 import React from 'react';
 import { useGithubJsonForm } from 'react-tinacms-github';
-import {
-	InlineForm,
-	InlineText,
-	InlineTextarea
-} from 'react-tinacms-inline';
+import { InlineForm, InlineText, InlineTextarea } from 'react-tinacms-inline';
 import { useCMS, usePlugin } from 'tinacms';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
@@ -16,12 +13,11 @@ import Hero from '../components/Hero';
 import { toMarkdownString } from '../lib/toMarkdownString';
 import styles from '../styles/Home.module.scss';
 
-const language = 'en';
-
-export default function Home (props) {
+export default function Home(props) {
 	const cms = useCMS();
 
 	const formOptions = {
+		id: 'home',
 		label: 'Home page',
 		fields: [
 			{ name: 'title', component: 'text' },
@@ -30,26 +26,44 @@ export default function Home (props) {
 				label: 'Hero image',
 				component: 'image',
 				uploadDir: () => '/public/',
-				parse: filename => `../${filename}`,
-				previewSrc: data => `/${data.heroImage}`
+				parse: (filename) => `../${filename}`,
+				previewSrc: (data) => `/${data.heroImage}`,
 			},
 			{ name: 'Name label', component: 'text' },
 			{ name: 'Email label', component: 'text' },
 			{ name: 'Message label', component: 'text' },
 			{ name: 'Submit label', component: 'text' },
-			{ name: 'thanksMessage', component: 'text' }
+			{ name: 'thanksMessage', component: 'text' },
+			{
+				name: 'misakoPicture',
+				label: 'Misako image',
+				component: 'image',
+				uploadDir: () => '/public/',
+				parse: (filename) => `../${filename}`,
+				previewSrc: (data) => `/${data.misakoPicture}`,
+			},
+			{
+				name: 'davidPicture',
+				label: 'David image',
+				component: 'image',
+				uploadDir: () => '/public/',
+				parse: (filename) => `../${filename}`,
+				previewSrc: (data) => `/${data.davidPicture}`,
+			},
 		],
-		onSubmit (data) {
-			return cms.api.git.writeToDisk({
-				fileRelativePath: props.fileRelativePath,
-				content: toMarkdownString(data)
-			}).then(() => {
-				return cms.api.git.commit({
-					files: [props.fileRelativePath],
-					message: `Commit from Tina: Update ${data.fileRelativePath}`
+		onSubmit(data) {
+			return cms.api.git
+				.writeToDisk({
+					fileRelativePath: props.fileRelativePath,
+					content: toMarkdownString(data),
+				})
+				.then(() => {
+					return cms.api.git.commit({
+						files: [props.fileRelativePath],
+						message: `Commit from Tina: Update ${data.fileRelativePath}`,
+					});
 				});
-			});
-		}
+		},
 	};
 
 	// Registers a JSON Tina Form
@@ -63,13 +77,12 @@ export default function Home (props) {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<InlineForm form={form} >
+			<InlineForm form={form}>
 				<main className={styles.main}>
 					<Header {...data} />
 					<Hero {...data} />
 
-					<section className={styles.about} id={data.servicesTitle}>
-
+					<section className={styles.about}>
 						<div className={styles.about_intro}>
 							<h2>
 								<InlineText name="servicesTitle" />
@@ -101,8 +114,7 @@ export default function Home (props) {
 						</div>
 					</section>
 
-					<section className={styles.about} id={data.aboutTitle}>
-
+					<section className={styles.about}>
 						<div className={styles.about_intro}>
 							<h2>
 								<InlineText name="aboutTitle" />
@@ -114,7 +126,7 @@ export default function Home (props) {
 							<div className={styles.row}>
 								<div className={styles.col}>
 									<div className={styles.bio}>
-										<img src="misako.jpg" className={styles.portrait} />
+										<img src={data.davidPicture} className={styles.portrait} />
 										<div>
 											<h3>
 												<InlineText name="blockFourTitle" />
@@ -125,7 +137,8 @@ export default function Home (props) {
 								</div>
 								<div className={styles.col}>
 									<div className={styles.bio}>
-										<img src="misako.jpg" className={styles.portrait} />
+										<img src={data.misakoPicture} className={styles.portrait} />
+
 										<div>
 											<h3>
 												<InlineText name="blockFiveTitle" />
@@ -138,7 +151,7 @@ export default function Home (props) {
 						</div>
 					</section>
 
-					<section className={styles.about} id={data.contactTitle}>
+					<section className={styles.about}>
 						<div className={styles.about_intro}>
 							<h2>
 								<InlineText name="contactTitle" />
@@ -150,7 +163,6 @@ export default function Home (props) {
 					</section>
 
 					<Footer />
-
 				</main>
 			</InlineForm>
 		</div>
@@ -160,26 +172,27 @@ export default function Home (props) {
 /**
  * Fetch data with getStaticProps based on 'preview' mode
  */
-export const getStaticProps = async function ({
+export const getStaticProps: GetStaticProps = async function ({
 	preview,
-	previewData
+	previewData,
 }) {
 	if (preview) {
 		return getGithubPreviewProps({
 			...previewData,
-			fileRelativePath: `content/home.${language}.json`,
-			parse: parseJson
+			fileRelativePath: 'content/home.en.json',
+			parse: parseJson,
 		});
 	}
+
 	return {
 		props: {
 			sourceProvider: null,
 			error: null,
 			preview: false,
 			file: {
-				fileRelativePath: `content/home.${language}.json`,
-				data: (await import(`../content/home.${language}.json`)).default
-			}
-		}
+				fileRelativePath: 'content/home.en.json',
+				data: (await import('../content/home.en.json')).default,
+			},
+		},
 	};
 };

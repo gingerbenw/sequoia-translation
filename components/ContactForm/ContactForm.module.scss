@@ -1,41 +1,38 @@
 $border-radius: 5px;
-$field-background: #f8fafc;
+$field-background: #ebf2f8;
 $field-padding: 10px;
-$primary-color: #4D7EA8;
+$primary-color: #4d7ea8;
 
 .contact {
-    max-width: 450px;
-    margin: auto;
+  max-width: 450px;
+  margin: auto;
 
-    .input {
-        width: 100%;
-        display: block;
-        border: none;
-        background-color: $field-background;
-        border-radius: $border-radius;
-        padding: $field-padding;
-        margin-bottom: 15px;
-    }
-    .label {
-        font: normal normal 600 16px/26px 'Baloo Da 2';
-        text-transform: uppercase;
-        letter-spacing: 0px;
-        opacity: 1;
-      }
+  .input {
+    width: 100%;
+    display: block;
+    border: none;
+    background-color: $field-background;
+    border-radius: $border-radius;
+    padding: $field-padding;
+    margin-bottom: 15px;
+  }
+  .label {
+    font: normal normal 600 16px/26px "Baloo Da 2";
+    text-transform: uppercase;
+    letter-spacing: 0px;
+    opacity: 1;
+  }
 
-      .button {
-          margin-top: 10px;
-          text-transform: uppercase;
-          font: normal normal 600 16px/26px 'Baloo Da 2';
-      
-      background-color: $primary-color;
-      border:none;
-      border-radius: $border-radius;
-      padding: 10px 20px;
-      color: white;
-      width: 100%;
-      }
+  .button {
+    margin-top: 10px;
+    text-transform: uppercase;
+    font: normal normal 600 16px/26px "Baloo Da 2";
 
-
-
+    background-color: $primary-color;
+    border: none;
+    border-radius: $border-radius;
+    padding: 10px 20px;
+    color: white;
+    width: 100%;
+  }
 }

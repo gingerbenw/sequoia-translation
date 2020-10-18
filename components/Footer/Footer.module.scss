@@ -6,3 +6,20 @@ $text-color: #ffffff;
   color: $text-color;
   width: 100%;
 }
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.button {
+  border: none;
+  color: white;
+  background-color: #294964;
+  border-radius: 5px;
+  padding: 5px 15px;
+}
