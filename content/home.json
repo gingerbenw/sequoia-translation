@@ -1,3 +1,10 @@
 {
-  "title": "Sequoia Translation"
+  "title": "Sequoia Translation",
+  "en": {
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "messageLabel": "Message",
+    "submitLabel": "Submit",
+    "thanksMessage": "Thanks for getting in touch!"
+  }
 }
