@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import { useI18n } from '@tinalabs/react-tinacms-i18n';
 import { GetStaticProps } from 'next';
 import { getGithubPreviewProps, parseJson } from 'next-tinacms-github';
 import Head from 'next/head';
@@ -13,13 +12,11 @@ import Header from '../components/Header';
 import Hero from '../components/Hero';
 import { toMarkdownString } from '../lib/toMarkdownString';
 import styles from '../styles/Home.module.scss';
+import useFieldName from '../utils/useFieldName';
 
 export default function Home(props) {
 	const cms = useCMS();
-	const i18n = useI18n();
-
-	const selectedLocale = i18n.getFormateLocale();
-	const getFieldTitle = (name) => `${selectedLocale}.${name}`;
+	const { getFieldName } = useFieldName();
 
 	const formOptions = {
 		id: 'home',
@@ -35,27 +32,27 @@ export default function Home(props) {
 				previewSrc: (data) => `/${data.heroImage}`,
 			},
 			{
-				name: getFieldTitle('nameLabel'),
+				name: getFieldName('nameLabel'),
 				label: 'Contact Form Name Label',
 				component: 'text',
 			},
 			{
-				name: getFieldTitle('emailLabel'),
+				name: getFieldName('emailLabel'),
 				label: 'Contact Form Email Label',
 				component: 'text',
 			},
 			{
-				name: getFieldTitle('messageLabel'),
+				name: getFieldName('messageLabel'),
 				label: 'Contact Form Message Label',
 				component: 'text',
 			},
 			{
-				name: getFieldTitle('submitLabel'),
+				name: getFieldName('submitLabel'),
 				label: 'Submit Button Label',
 				component: 'text',
 			},
 			{
-				name: getFieldTitle('thanksMessage'),
+				name: getFieldName('thanksMessage'),
 				label: 'Contact Form Thanks Message',
 				component: 'text',
 			},
@@ -94,30 +91,30 @@ export default function Home(props) {
 					<section className={styles.about}>
 						<div className={styles.about_intro}>
 							<h2>
-								<InlineText name={getFieldTitle('servicesTitle')} />
+								<InlineText name={getFieldName('servicesTitle')} />
 							</h2>
-							<InlineTextarea name={getFieldTitle('servicesText')} />
+							<InlineTextarea name={getFieldName('servicesText')} />
 						</div>
 
 						<div className={styles.container}>
 							<div className={styles.row}>
 								<div className={styles.col}>
 									<h3>
-										<InlineText name={getFieldTitle('blockOneTitle')} />
+										<InlineText name={getFieldName('blockOneTitle')} />
 									</h3>
-									<InlineTextarea name={getFieldTitle('blockOneText')} />
+									<InlineTextarea name={getFieldName('blockOneText')} />
 								</div>
 								<div className={styles.col}>
 									<h3>
-										<InlineText name={getFieldTitle('blockTwoTitle')} />
+										<InlineText name={getFieldName('blockTwoTitle')} />
 									</h3>
-									<InlineTextarea name={getFieldTitle('blockTwoText')} />
+									<InlineTextarea name={getFieldName('blockTwoText')} />
 								</div>
 								<div className={styles.col}>
 									<h3>
-										<InlineText name={getFieldTitle('blockThreeTitle')} />
+										<InlineText name={getFieldName('blockThreeTitle')} />
 									</h3>
-									<InlineTextarea name={getFieldTitle('blockThreeText')} />
+									<InlineTextarea name={getFieldName('blockThreeText')} />
 								</div>
 							</div>
 						</div>
@@ -126,9 +123,9 @@ export default function Home(props) {
 					<section className={styles.about}>
 						<div className={styles.about_intro}>
 							<h2>
-								<InlineText name={getFieldTitle('aboutTitle')} />
+								<InlineText name={getFieldName('aboutTitle')} />
 							</h2>
-							<InlineTextarea name={getFieldTitle('aboutText')} />
+							<InlineTextarea name={getFieldName('aboutText')} />
 						</div>
 
 						<div className={styles.container}>
@@ -138,9 +135,9 @@ export default function Home(props) {
 										<img src={data.davidPicture} className={styles.portrait} />
 										<div>
 											<h3>
-												<InlineText name={getFieldTitle('blockFourTitle')} />
+												<InlineText name={getFieldName('blockFourTitle')} />
 											</h3>
-											<InlineTextarea name={getFieldTitle('blockFourText')} />
+											<InlineTextarea name={getFieldName('blockFourText')} />
 										</div>
 									</div>
 								</div>
@@ -150,9 +147,9 @@ export default function Home(props) {
 
 										<div>
 											<h3>
-												<InlineText name={getFieldTitle('blockFiveTitle')} />
+												<InlineText name={getFieldName('blockFiveTitle')} />
 											</h3>
-											<InlineTextarea name={getFieldTitle('blockFiveText')} />
+											<InlineTextarea name={getFieldName('blockFiveText')} />
 										</div>
 									</div>
 								</div>
@@ -163,9 +160,9 @@ export default function Home(props) {
 					<section className={styles.about}>
 						<div className={styles.about_intro}>
 							<h2>
-								<InlineText name={getFieldTitle('contactTitle')} />
+								<InlineText name={getFieldName('contactTitle')} />
 							</h2>
-							<InlineTextarea name={getFieldTitle('contactText')} />
+							<InlineTextarea name={getFieldName('contactText')} />
 						</div>
 
 						<ContactForm />
