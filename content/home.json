@@ -48,6 +48,10 @@
     "aboutText": "....",
     "contactTitle": "お問い合わせ",
     "contactText": "見積もりまたは詳細については、メールでお問い合わせください",
+    "nameLabel": "名前",
+    "emailLabel": "Eメール",
+    "messageLabel": "メッサージ",
+    "submitLabel": "送る",
     "thanksMessage": "ありがとうございます"
   }
 }
