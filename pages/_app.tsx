@@ -1,6 +1,7 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 import App from 'next/app';
 import React from 'react';
+import { withI18n } from '@tinalabs/react-tinacms-i18n';
 import { TinaCMS, TinaProvider } from 'tinacms';
 import {
 	GithubClient,
@@ -41,6 +42,12 @@ export default class Site extends App {
   render() {
   	const { Component, pageProps } = this.props;
 
+  	const AppWrapper = withI18n(Component, {
+  		ApiOptions: {
+  			localeList: [{ language: 'en' }, { language: 'jp', region: 'jp' }],
+  		},
+  	});
+
   	return (
   		<TinaProvider cms={this.cms}>
   			<TinacmsGithubProvider
@@ -48,7 +55,7 @@ export default class Site extends App {
   				onLogout={onLogout}
   				error={pageProps.error}
   			>
-  				<Component {...pageProps} />
+  				<AppWrapper {...pageProps} />
   			</TinacmsGithubProvider>
   		</TinaProvider>
   	);

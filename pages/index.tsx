@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { useI18n } from '@tinalabs/react-tinacms-i18n';
 import { GetStaticProps } from 'next';
 import { getGithubPreviewProps, parseJson } from 'next-tinacms-github';
 import Head from 'next/head';
@@ -15,40 +16,48 @@ import styles from '../styles/Home.module.scss';
 
 export default function Home(props) {
 	const cms = useCMS();
+	const i18n = useI18n();
+
+	const selectedLocale = i18n.getFormateLocale();
+	const getFieldTitle = (name) => `${selectedLocale}.${name}`;
 
 	const formOptions = {
 		id: 'home',
 		label: 'Home page',
 		fields: [
-			{ name: 'title', component: 'text' },
+			{ name: 'title', label: 'Site Title', component: 'text' },
 			{
 				name: 'heroImage',
-				label: 'Hero image',
+				label: 'Hero Image',
 				component: 'image',
 				uploadDir: () => '/public/',
 				parse: (filename) => `../${filename}`,
 				previewSrc: (data) => `/${data.heroImage}`,
 			},
-			{ name: 'Name label', component: 'text' },
-			{ name: 'Email label', component: 'text' },
-			{ name: 'Message label', component: 'text' },
-			{ name: 'Submit label', component: 'text' },
-			{ name: 'thanksMessage', component: 'text' },
 			{
-				name: 'misakoPicture',
-				label: 'Misako image',
-				component: 'image',
-				uploadDir: () => '/public/',
-				parse: (filename) => `../${filename}`,
-				previewSrc: (data) => `/${data.misakoPicture}`,
+				name: getFieldTitle('nameLabel'),
+				label: 'Contact Form Name Label',
+				component: 'text',
 			},
 			{
-				name: 'davidPicture',
-				label: 'David image',
-				component: 'image',
-				uploadDir: () => '/public/',
-				parse: (filename) => `../${filename}`,
-				previewSrc: (data) => `/${data.davidPicture}`,
+				name: getFieldTitle('emailLabel'),
+				label: 'Contact Form Email Label',
+				component: 'text',
+			},
+			{
+				name: getFieldTitle('messageLabel'),
+				label: 'Contact Form Message Label',
+				component: 'text',
+			},
+			{
+				name: getFieldTitle('submitLabel'),
+				label: 'Submit Button Label',
+				component: 'text',
+			},
+			{
+				name: getFieldTitle('thanksMessage'),
+				label: 'Contact Form Thanks Message',
+				component: 'text',
 			},
 		],
 		onSubmit(data) {
@@ -85,30 +94,30 @@ export default function Home(props) {
 					<section className={styles.about}>
 						<div className={styles.about_intro}>
 							<h2>
-								<InlineText name="servicesTitle" />
+								<InlineText name={getFieldTitle('servicesTitle')} />
 							</h2>
-							<InlineTextarea name="servicesText" />
+							<InlineTextarea name={getFieldTitle('servicesText')} />
 						</div>
 
 						<div className={styles.container}>
 							<div className={styles.row}>
 								<div className={styles.col}>
 									<h3>
-										<InlineText name="blockOneTitle" />
+										<InlineText name={getFieldTitle('blockOneTitle')} />
 									</h3>
-									<InlineTextarea name="blockOneText" />
+									<InlineTextarea name={getFieldTitle('blockOneText')} />
 								</div>
 								<div className={styles.col}>
 									<h3>
-										<InlineText name="blockTwoTitle" />
+										<InlineText name={getFieldTitle('blockTwoTitle')} />
 									</h3>
-									<InlineTextarea name="blockTwoText" />
+									<InlineTextarea name={getFieldTitle('blockTwoText')} />
 								</div>
 								<div className={styles.col}>
 									<h3>
-										<InlineText name="blockThreeTitle" />
+										<InlineText name={getFieldTitle('blockThreeTitle')} />
 									</h3>
-									<InlineTextarea name="blockThreeText" />
+									<InlineTextarea name={getFieldTitle('blockThreeText')} />
 								</div>
 							</div>
 						</div>
@@ -117,9 +126,9 @@ export default function Home(props) {
 					<section className={styles.about}>
 						<div className={styles.about_intro}>
 							<h2>
-								<InlineText name="aboutTitle" />
+								<InlineText name={getFieldTitle('aboutTitle')} />
 							</h2>
-							<InlineTextarea name="aboutText" />
+							<InlineTextarea name={getFieldTitle('aboutText')} />
 						</div>
 
 						<div className={styles.container}>
@@ -129,9 +138,9 @@ export default function Home(props) {
 										<img src={data.davidPicture} className={styles.portrait} />
 										<div>
 											<h3>
-												<InlineText name="blockFourTitle" />
+												<InlineText name={getFieldTitle('blockFourTitle')} />
 											</h3>
-											<InlineTextarea name="blockFourText" />
+											<InlineTextarea name={getFieldTitle('blockFourText')} />
 										</div>
 									</div>
 								</div>
@@ -141,9 +150,9 @@ export default function Home(props) {
 
 										<div>
 											<h3>
-												<InlineText name="blockFiveTitle" />
+												<InlineText name={getFieldTitle('blockFiveTitle')} />
 											</h3>
-											<InlineTextarea name="blockFiveText" />
+											<InlineTextarea name={getFieldTitle('blockFiveText')} />
 										</div>
 									</div>
 								</div>
@@ -154,9 +163,9 @@ export default function Home(props) {
 					<section className={styles.about}>
 						<div className={styles.about_intro}>
 							<h2>
-								<InlineText name="contactTitle" />
+								<InlineText name={getFieldTitle('contactTitle')} />
 							</h2>
-							<InlineTextarea name="contactText" />
+							<InlineTextarea name={getFieldTitle('contactText')} />
 						</div>
 
 						<ContactForm />
@@ -179,7 +188,7 @@ export const getStaticProps: GetStaticProps = async function ({
 	if (preview) {
 		return getGithubPreviewProps({
 			...previewData,
-			fileRelativePath: 'content/home.en.json',
+			fileRelativePath: 'content/home.json',
 			parse: parseJson,
 		});
 	}
@@ -190,8 +199,8 @@ export const getStaticProps: GetStaticProps = async function ({
 			error: null,
 			preview: false,
 			file: {
-				fileRelativePath: 'content/home.en.json',
-				data: (await import('../content/home.en.json')).default,
+				fileRelativePath: 'content/home.json',
+				data: (await import('../content/home.json')).default,
 			},
 		},
 	};
