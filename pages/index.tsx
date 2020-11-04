@@ -4,12 +4,17 @@ import { getGithubPreviewProps, parseJson } from 'next-tinacms-github';
 import Head from 'next/head';
 import React from 'react';
 import { useGithubJsonForm } from 'react-tinacms-github';
-import { InlineForm, InlineText, InlineTextarea } from 'react-tinacms-inline';
+import {
+	InlineForm,
+	InlineText,
+	InlineTextarea,
+} from 'react-tinacms-inline';
 import { useCMS, usePlugin } from 'tinacms';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
+// import Image from '../components/ImageBlock';
 import { toMarkdownString } from '../lib/toMarkdownString';
 import styles from '../styles/Home.module.scss';
 import useFieldName from '../utils/useFieldName';
@@ -55,6 +60,38 @@ export default function Home(props) {
 				name: getFieldName('thanksMessage'),
 				label: 'Contact Form Thanks Message',
 				component: 'text',
+			},
+			{
+				name: 'davidPicture',
+				label: 'David Picture',
+				component: 'image',
+				uploadDir: () => '/public/',
+				parse: (filename) => `../${filename}`,
+				previewSrc: (data) => `/${data.davidPicture}`,
+			},
+			{
+				name: 'misakoPicture',
+				label: 'Misako Picture',
+				component: 'image',
+				uploadDir: () => '/public/',
+				parse: (filename) => `../${filename}`,
+				previewSrc: (data) => `/${data.misakoPicture}`,
+			},
+			{
+				name: 'image_block_1',
+				label: 'Image Block 1',
+				component: 'image',
+				uploadDir: () => '/public/',
+				parse: (filename) => `../${filename}`,
+				previewSrc: (data) => `/${data.image_block_1}`,
+			},
+			{
+				name: 'image_block_2',
+				label: 'Image Block 2',
+				component: 'image',
+				uploadDir: () => '/public/',
+				parse: (filename) => `../${filename}`,
+				previewSrc: (data) => `/${data.image_block_2}`,
 			},
 		],
 		onSubmit(data) {
@@ -120,6 +157,10 @@ export default function Home(props) {
 						</div>
 					</section>
 
+					<div className={styles.image_break}>
+						<img src={data.image_block_1} />
+					</div>
+
 					<section className={styles.about}>
 						<div className={styles.about_intro}>
 							<h2>
@@ -144,7 +185,6 @@ export default function Home(props) {
 								<div className={styles.col}>
 									<div className={styles.bio}>
 										<img src={data.misakoPicture} className={styles.portrait} />
-
 										<div>
 											<h3>
 												<InlineText name={getFieldName('blockFiveTitle')} />
@@ -156,6 +196,10 @@ export default function Home(props) {
 							</div>
 						</div>
 					</section>
+
+					<div className={styles.image_break}>
+						<img src={data.image_block_2} />
+					</div>
 
 					<section className={styles.about}>
 						<div className={styles.about_intro}>
