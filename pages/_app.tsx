@@ -10,6 +10,7 @@ import {
 } from 'react-tinacms-github';
 
 import '../styles/globals.css';
+import languages from '../lib/languages.json';
 
 const githubClient = new GithubClient({
 	proxy: '/api/proxy-github',
@@ -44,7 +45,7 @@ export default class Site extends App {
 
   	const AppWrapper = withI18n(Component, {
   		ApiOptions: {
-  			localeList: [{ language: 'en' }, { language: 'jp', region: 'jp' }],
+  			localeList: languages,
   		},
   	});
 

@@ -2,6 +2,9 @@
 import React from 'react';
 import { InlineText } from 'react-tinacms-inline';
 import styles from './Header.module.scss';
+import { useI18n } from '@tinalabs/react-tinacms-i18n';
+
+import languages from '../../lib/languages.json';
 
 interface HeaderProps {
   servicesTitle?: string;
@@ -16,6 +19,14 @@ export const Header: React.FC<HeaderProps> = ({
 	aboutTitle,
 	contactTitle,
 }) => {
+	const i18n = useI18n();
+
+	const changeLocale = (event: React.ChangeEvent<HTMLSelectElement>) => {
+		const selectedLocale = languages.find(({ language }) => language === event.target.value);
+		i18n.setLocale(selectedLocale);
+	};
+
+	const currentLocale = i18n.getLocale();
 
 	return (
 		<header className={styles.header}>
@@ -36,6 +47,9 @@ export const Header: React.FC<HeaderProps> = ({
 						</a>
 					</ul>
 				</nav>
+				<select value={currentLocale.language} onChange={changeLocale}>
+					{languages.map(({ language, label }) => <option key={language} value={language} label={label} />)}
+				</select>
 			</div>
 		</header>
 	);
