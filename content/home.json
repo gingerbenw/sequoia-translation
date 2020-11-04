@@ -53,5 +53,7 @@
     "submitLabel": "送る",
     "thanksMessage": "ありがとうございます",
     "blockFourTitle": "デビッド"
-  }
+  },
+  "image_block_1": "../notebook_break.png",
+  "image_block_2": "../conifer_break.png"
 }
