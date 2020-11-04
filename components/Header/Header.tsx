@@ -5,6 +5,7 @@ import styles from './Header.module.scss';
 import { useI18n } from '@tinalabs/react-tinacms-i18n';
 
 import languages from '../../lib/languages.json';
+import useFieldName from '../../utils/useFieldName';
 
 interface HeaderProps {
   servicesTitle?: string;
@@ -14,11 +15,9 @@ interface HeaderProps {
 
 const formatLink = (link: string) => '#' + link;
 
-export const Header: React.FC<HeaderProps> = ({
-	servicesTitle,
-	aboutTitle,
-	contactTitle,
-}) => {
+export const Header: React.FC<HeaderProps> = () => {
+	const { getFieldName } = useFieldName();
+
 	const i18n = useI18n();
 
 	const changeLocale = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -36,14 +35,15 @@ export const Header: React.FC<HeaderProps> = ({
 				</h1>
 				<nav className={styles.nav}>
 					<ul className={styles.menu}>
-						<a href={formatLink(servicesTitle)}>
-							<li>{servicesTitle}</li>
+						<a href={formatLink(getFieldName('servicesTitle'))}>
+							<li><InlineText name={getFieldName('servicesTitle')} /></li>
 						</a>
-						<a href={formatLink(aboutTitle)}>
-							<li>{aboutTitle}</li>
+						<a href={formatLink(getFieldName('aboutTitle'))}>
+							<li><InlineText name={getFieldName('aboutTitle')} /></li>
 						</a>
-						<a href={formatLink(contactTitle)}>
-							<li>{contactTitle}</li>
+						<a href={formatLink(getFieldName('contactTitle'))}>
+							<li><InlineText name={getFieldName('contactTitle')} /></li>
+
 						</a>
 					</ul>
 				</nav>
