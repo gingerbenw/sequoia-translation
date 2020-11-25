@@ -43,13 +43,12 @@ export const Header: React.FC<HeaderProps> = () => {
 						</a>
 						<a href={formatLink(getFieldName('contactTitle'))}>
 							<li><InlineText name={getFieldName('contactTitle')} /></li>
-
 						</a>
 					</ul>
+					<select value={currentLocale.language} onChange={changeLocale}>
+						{languages.map(({ language, label }) => <option key={language} value={language} label={label} />)}
+					</select>
 				</nav>
-				<select value={currentLocale.language} onChange={changeLocale}>
-					{languages.map(({ language, label }) => <option key={language} value={language} label={label} />)}
-				</select>
 			</div>
 		</header>
 	);

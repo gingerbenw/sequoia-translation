@@ -36,6 +36,10 @@ $primary-color: #4d7ea8;
   align-items: center;
   justify-content: flex-end;
   flex: 1;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 ul.menu {
