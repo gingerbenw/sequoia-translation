@@ -1,42 +1,53 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 import App from 'next/app';
 import React from 'react';
+import { withI18n } from '@tinalabs/react-tinacms-i18n';
 import { TinaCMS, TinaProvider } from 'tinacms';
-import { GithubClient, GithubMediaStore, TinacmsGithubProvider } from 'react-tinacms-github';
+import {
+	GithubClient,
+	GithubMediaStore,
+	TinacmsGithubProvider,
+} from 'react-tinacms-github';
 
 import '../styles/globals.css';
+import languages from '../lib/languages.json';
 
 const githubClient = new GithubClient({
 	proxy: '/api/proxy-github',
 	authCallbackRoute: '/api/create-github-access-token',
 	clientId: process.env.GITHUB_CLIENT_ID,
 	baseRepoFullName: process.env.REPO_FULL_NAME,
-	baseBranch: process.env.BASE_BRANCH
+	baseBranch: process.env.BASE_BRANCH,
 });
 
 const store = new GithubMediaStore(githubClient);
 
 export default class Site extends App {
-  cms: TinaCMS
+  cms: TinaCMS;
 
-  constructor (props) {
+  constructor(props) {
   	super(props);
   	this.cms = new TinaCMS({
-		  enabled: !!props.pageProps.preview,
-		  media: {
-  			// @ts-ignore
-  			store: store
-		  },
+  		enabled: !!props.pageProps.preview,
+  		media: {
+  			store: store,
+  		},
   		apis: {
-  			github: githubClient
-		  },
+  			github: githubClient,
+  		},
   		sidebar: props.pageProps.preview,
-  		toolbar: props.pageProps.preview
+  		toolbar: props.pageProps.preview,
   	});
   }
 
-  render () {
-	  const { Component, pageProps } = this.props;
+  render() {
+  	const { Component, pageProps } = this.props;
+
+  	const AppWrapper = withI18n(Component, {
+  		ApiOptions: {
+  			localeList: languages,
+  		},
+  	});
 
   	return (
   		<TinaProvider cms={this.cms}>
@@ -45,8 +56,7 @@ export default class Site extends App {
   				onLogout={onLogout}
   				error={pageProps.error}
   			>
-  				<Component {...pageProps} language="en" />
-  				<EditLink cms={this.cms} />
+  				<AppWrapper {...pageProps} />
   			</TinacmsGithubProvider>
   		</TinaProvider>
   	);
@@ -72,16 +82,4 @@ const onLogout = () => {
 	return fetch('/api/reset-preview').then(() => {
 		window.location.reload();
 	});
-};
-
-export interface EditLinkProps {
-  cms: TinaCMS
-}
-
-export const EditLink = ({ cms }: EditLinkProps) => {
-	return (
-		<button onClick={() => cms.toggle()}>
-			{cms.enabled ? 'Exit Edit Mode' : 'Edit This Site'}
-		</button>
-	);
 };
