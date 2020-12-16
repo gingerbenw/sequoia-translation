@@ -1,0 +1,12 @@
+@import '../../styles//Theme.module.scss';
+
+.menu {
+  padding: 0;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  padding: 3px 5px;
+  margin: 0 10px;
+  color: $primary-color;
+  font-weight: bold;
+}

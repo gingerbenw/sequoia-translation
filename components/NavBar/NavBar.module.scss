@@ -1,0 +1,52 @@
+@import '../../styles//Theme.module.scss';
+
+.nav {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.menu {
+  flex: 1;
+  display: flex;
+  list-style: none;
+  justify-content: flex-end;
+  padding: 0;
+  margin: 0;
+  color: white;
+  padding: 0 -10px;
+
+  li {
+    padding: 0 10px;
+  }
+}
+
+.nav_mobile {
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 1;
+}
+
+.icon {
+  height: 24px;
+  width: 24px;
+  align-self: flex-end;
+}
+
+.dropdown_menu {
+  border: 1px solid red;
+  position: absolute;
+  top: 100%;
+  background-color: $primary-color;
+  left: 0;
+  right: 0;
+  padding: 10px 15px;
+  max-height: 0px;
+  overflow: hidden;
+}
+
+.dropdown_open {
+  max-height: 50px;
+}

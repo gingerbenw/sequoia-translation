@@ -1,10 +1,10 @@
-import * as yaml from 'js-yaml'
+import * as yaml from 'js-yaml';
 
-export function toMarkdownString (formValues) {
+export function toMarkdownString(formValues) {
   return (
     '---\n' +
-        yaml.dump(formValues.frontmatter) +
-        '---\n' +
-        (formValues.markdownBody || '')
-  )
+    yaml.dump(formValues.frontmatter) +
+    '---\n' +
+    (formValues.markdownBody || '')
+  );
 }
