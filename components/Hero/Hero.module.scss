@@ -12,9 +12,13 @@
 
 .hero_text {
   text-align: center;
-  font: normal normal normal 36px/46px "Baloo Da 2";
+  font: normal normal normal 36px/46px 'Baloo Da 2';
   letter-spacing: 1.26px;
   color: #ffffff;
   opacity: 1;
   max-width: 900px;
+
+  @media screen and (max-width: 768px) {
+    font: normal normal normal 24px/34px 'Baloo Da 2';
+  }
 }
