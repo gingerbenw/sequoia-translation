@@ -4,12 +4,11 @@ import useFieldName from '../../lib/useFieldName';
 import { InlineText } from 'react-tinacms-inline';
 import { MenuIcon } from '../Icons';
 import LanguageSelect from '../LanguageSelect';
+import formatLink from '../../lib/formatLink';
 
 interface NavBarProps {
   toggleMenu: () => void;
 }
-
-const formatLink = (link: string) => '#' + link;
 
 const mediaQuery = 'screen and (min-width: 768px)';
 

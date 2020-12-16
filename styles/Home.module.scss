@@ -64,6 +64,11 @@
   img {
     position: absolute;
     min-width: 100vw;
+
+    @media (max-width: $mobile-break-point)  {
+      height: 100%;
+      min-width: 100%; 
+    }
   }
 }
 
@@ -90,7 +95,7 @@
   flex-direction: row;
   margin-bottom: 30px;
 
-  @media (max-width: 768px) {
+  @media (max-width: $mobile-break-point) {
     flex-direction: column;
   }
 
