@@ -1,4 +1,4 @@
-$mobile-break-point: 800px;
+@import "./Theme.module.scss";
 
 .main {
   width: 100%;
@@ -18,7 +18,7 @@ $mobile-break-point: 800px;
 
 .row {
   width: 100%;
-  max-width: 1200px;
+  max-width: $container-max-width;
   display: flex;
   flex-direction: row;
 
@@ -29,7 +29,7 @@ $mobile-break-point: 800px;
 
 .col {
   flex: 1;
-  margin: 0 30px;
+  margin: 0 $container-padding;
 }
 
 .logo {

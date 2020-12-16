@@ -4,10 +4,9 @@ import styles from './Header.module.scss';
 import dynamic from 'next/dynamic';
 import classNames from 'classnames';
 
-import useFieldName from '../../utils/useFieldName';
+import useFieldName from '../../lib/useFieldName';
 import LanguageSelect from '../LanguageSelect';
-
-const formatLink = (link: string) => '#' + link;
+import formatLink from '../../lib/formatLink';
 
 // Dynamic import to allow use of global window variable
 const NavBar = dynamic(() => import('../NavBar'), { ssr: false });
@@ -35,17 +34,26 @@ export const Header: React.FC<HeaderProps> = () => {
         <div className={styles.dropdown_menu}>
           <nav className={styles.nav}>
             <ul className={styles.menu}>
-              <a href={formatLink(getFieldName('servicesTitle'))}>
+              <a
+                href={formatLink(getFieldName('servicesTitle'))}
+                onClick={toggleMenu}
+              >
                 <li>
                   <InlineText name={getFieldName('servicesTitle')} />
                 </li>
               </a>
-              <a href={formatLink(getFieldName('aboutTitle'))}>
+              <a
+                href={formatLink(getFieldName('aboutTitle'))}
+                onClick={toggleMenu}
+              >
                 <li>
                   <InlineText name={getFieldName('aboutTitle')} />
                 </li>
               </a>
-              <a href={formatLink(getFieldName('contactTitle'))}>
+              <a
+                href={formatLink(getFieldName('contactTitle'))}
+                onClick={toggleMenu}
+              >
                 <li>
                   <InlineText name={getFieldName('contactTitle')} />
                 </li>

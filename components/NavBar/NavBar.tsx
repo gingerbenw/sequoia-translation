@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './NavBar.module.scss';
-import useFieldName from '../../utils/useFieldName';
+import useFieldName from '../../lib/useFieldName';
 import { InlineText } from 'react-tinacms-inline';
 import { MenuIcon } from '../Icons';
 import LanguageSelect from '../LanguageSelect';

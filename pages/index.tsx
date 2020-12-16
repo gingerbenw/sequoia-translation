@@ -13,7 +13,7 @@ import Hero from '../components/Hero';
 // import Image from '../components/ImageBlock';
 import { toMarkdownString } from '../lib/toMarkdownString';
 import styles from '../styles/Home.module.scss';
-import useFieldName from '../utils/useFieldName';
+import useFieldName from '../lib/useFieldName';
 
 export default function Home(props) {
   const cms = useCMS();
@@ -121,7 +121,7 @@ export default function Home(props) {
           <Header {...data} />
           <Hero {...data} />
 
-          <section className={styles.about}>
+          <section className={styles.about} id={getFieldName('servicesTitle')}>
             <div className={styles.about_intro}>
               <h2>
                 <InlineText name={getFieldName('servicesTitle')} />
@@ -157,7 +157,7 @@ export default function Home(props) {
             <img src={data.image_block_1} />
           </div>
 
-          <section className={styles.about}>
+          <section className={styles.about} id={getFieldName('aboutTitle')}>
             <div className={styles.about_intro}>
               <h2>
                 <InlineText name={getFieldName('aboutTitle')} />
@@ -197,7 +197,7 @@ export default function Home(props) {
             <img src={data.image_block_2} />
           </div>
 
-          <section className={styles.about}>
+          <section className={styles.about} id={getFieldName('contactTitle')}>
             <div className={styles.about_intro}>
               <h2>
                 <InlineText name={getFieldName('contactTitle')} />
@@ -205,7 +205,13 @@ export default function Home(props) {
               <InlineTextarea name={getFieldName('contactText')} />
             </div>
 
-            <ContactForm />
+            <div className={styles.container}>
+              <div className={styles.row}>
+                <div className={styles.col}>
+                  <ContactForm />
+                </div>
+              </div>
+            </div>
           </section>
 
           <Footer />

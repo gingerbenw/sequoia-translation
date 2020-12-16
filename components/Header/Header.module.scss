@@ -66,6 +66,11 @@ ul.menu {
   transition-duration: 0.25s;
   transition-property: max-height;
   transition-timing-function: ease-in-out;
+
+
+  @media (min-width: 769px) {
+    display: none;
+  }
 }
 
 .open {
