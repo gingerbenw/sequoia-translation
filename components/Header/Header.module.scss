@@ -29,16 +29,9 @@
   opacity: 1;
   display: inline;
 
-  @media (max-width: 768px) {
+  @media (max-width: $mobile-break-point) {
     font: normal normal 600 24px/36px 'Baloo Da 2';
   }
-}
-
-.nav {
-  // display: inline-flex;
-  // align-items: center;
-  // justify-content: flex-end;
-  // flex: 1;
 }
 
 ul.menu {
@@ -49,13 +42,6 @@ ul.menu {
 
   li {
     line-height: 30px;
-    // margin: 0;
-    // margin-right: 20px;
-    //   color: white;
-
-    //   &:hover {
-    //     color: white;
-    //   }
   }
 }
 

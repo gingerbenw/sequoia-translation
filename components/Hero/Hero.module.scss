@@ -1,3 +1,5 @@
+@import "../../styles/Theme.module.scss";
+
 .hero {
   background-size: cover;
   background-position: center;
@@ -18,7 +20,7 @@
   opacity: 1;
   max-width: 900px;
 
-  @media screen and (max-width: 768px) {
+  @media (max-width: $mobile-break-point) {
     font: normal normal normal 24px/34px 'Baloo Da 2';
   }
 }
