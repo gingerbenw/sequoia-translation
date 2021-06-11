@@ -6,6 +6,7 @@ import useFieldName from '../../lib/useFieldName';
 
 export const ContactForm = () => {
   const [status, setStatus] = useState('initial');
+  const [honeypot, setHoneypot] = useState<string>();
   const { getFieldName } = useFieldName();
 
   const submitForm = (e) => {
@@ -16,6 +17,12 @@ export const ContactForm = () => {
     const form = e.target;
     const data = new FormData(form);
     const xhr = new XMLHttpRequest();
+
+    if (honeypot) {
+      form.reset();
+      setStatus('success');
+      return;
+    }
 
     xhr.open(form.method, form.action);
     xhr.setRequestHeader('Accept', 'application/json');
@@ -42,6 +49,13 @@ export const ContactForm = () => {
         <label className={styles.label}>
           <InlineText name={getFieldName('nameLabel')} />
         </label>
+        <input
+          type="92fm2h"
+          name="92fm2h"
+          hidden
+          value={honeypot}
+          onChange={({ currentTarget }) => setHoneypot(currentTarget.value)}
+        />
         <input type="name" name="name" className={styles.input} />
         <label className={styles.label}>
           <InlineText name={getFieldName('emailLabel')} />
