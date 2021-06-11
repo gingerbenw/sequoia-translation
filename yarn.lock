@@ -282,6 +282,11 @@
   resolved "https://registry.yarnpkg.com/@tinacms/core/-/core-0.29.0.tgz#d5af121051fc0740287c6aba2d3538bcc93e3e0e"
   integrity sha512-v0kKuIiuQbw19SgdQgL1qUjiQ3+NiR2v/2lznadd/ckYP5PtYE4w0k7mW9ULh2wsiiGo/OD3Cwv/dNSQxcg0Zg==
 
+"@tinacms/core@^0.39.0":
+  version "0.39.0"
+  resolved "https://registry.yarnpkg.com/@tinacms/core/-/core-0.39.0.tgz#5aa7acbc913fae0302d2ee40d0eb4aa3d1580be5"
+  integrity sha512-vC0cdh/Rt2eZdNf9SB9m9ZY4FdM/p58DOd6j+xk17AeZ//YACc+QugLNifIK5btkeaWu/7zbX8MPL8wIW/0hYw==
+
 "@tinacms/fields@^0.29.0":
   version "0.29.0"
   resolved "https://registry.yarnpkg.com/@tinacms/fields/-/fields-0.29.0.tgz#1a229cf6fe5f08b6f31135f3e14d962f2f146162"
@@ -697,12 +702,12 @@ axe-core@^4.0.2:
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.1.1.tgz#70a7855888e287f7add66002211a423937063eaf"
   integrity sha512-5Kgy8Cz6LPC9DJcNb3yjAXTu3XihQgEdnIg50c//zOC/MyLP0Clg+Y8Sh9ZjjnvBrDZU4DgXS9C3T9r4/scGZQ==
 
-axios@0.19.2:
-  version "0.19.2"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.19.2.tgz#3ea36c5d8818d0d5f8a8a97a6d36b86cdc00cb27"
-  integrity sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==
+axios@0.21.1:
+  version "0.21.1"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
+  integrity sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
   dependencies:
-    follow-redirects "1.5.10"
+    follow-redirects "^1.10.0"
 
 axobject-query@^2.2.0:
   version "2.2.0"
@@ -1222,13 +1227,6 @@ debug@2, debug@^2.6.9:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
   integrity sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==
-  dependencies:
-    ms "2.0.0"
-
-debug@=3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
-  integrity sha512-OX8XqP7/1a9cqkxYw2yXss15f26NKWBpDXQd0/uK/KPqdQhxbPa994hnzjcE2VqQpDslf55723cKPUOGSmMY3g==
   dependencies:
     ms "2.0.0"
 
@@ -1870,12 +1868,10 @@ flatted@^3.1.0:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.1.0.tgz#a5d06b4a8b01e3a63771daa5cb7a1903e2e57067"
   integrity sha512-tW+UkmtNg/jv9CSofAKvgVcO7c2URjhTdW1ZTkcAritblu8tajiYy7YisnIflEwtKssCtOxpnBRoCB7iap0/TA==
 
-follow-redirects@1.5.10:
-  version "1.5.10"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.5.10.tgz#7b7a9f9aea2fdff36786a94ff643ed07f4ff5e2a"
-  integrity sha512-0V5l4Cizzvqt5D44aTXbFZz+FtyXV1vrDN6qrelxtfYQKW0KO0W2T/hkE8xvGa/540LkZlkaUjO4ailYTFtHVQ==
-  dependencies:
-    debug "=3.1.0"
+follow-redirects@^1.10.0:
+  version "1.14.1"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.1.tgz#d9114ded0a1cfdd334e164e6662ad02bfd91ff43"
+  integrity sha512-HWqDgT7ZEkqRzBvc2s64vSZ/hfOceEol3ac/7tKwzuvEyWx3/4UegXh5oBOIotkGsObyk3xznnSRVADBgWSQVg==
 
 foreach@^2.0.5:
   version "2.0.5"
@@ -2697,23 +2693,33 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
-next-tinacms-github@^0.25.0:
-  version "0.25.0"
-  resolved "https://registry.yarnpkg.com/next-tinacms-github/-/next-tinacms-github-0.25.0.tgz#d68c919dab3f114d939d5620a12b6ba941eaccab"
-  integrity sha512-27p0Y92/UKVo0hunq6lVkM4uzG7mP9UB46Q6FIe7DMzU5baZbeZQXLDdkVepmtED1gk+PrvkGsmTq8DAiJwYnw==
+next-tinacms-github@^0.41.0:
+  version "0.41.0"
+  resolved "https://registry.yarnpkg.com/next-tinacms-github/-/next-tinacms-github-0.41.0.tgz#565ba2fcc72b89d540876d1652cdd763feff008a"
+  integrity sha512-AvCEWl+muHh03Owrap8bU6KOTRjjrW9CLuOgZIgaNP0FpOKmyn/oMlOEBZ8ubfy3hvOQGcujus3zLlZt1B5dqg==
   dependencies:
+    "@tinacms/core" "^0.39.0"
     atob "2.1.2"
-    axios "0.19.2"
+    axios "0.21.1"
     cookie "0.4.0"
     crypto-js "^4.0.0"
     gray-matter "4.0.2"
     qs "6.9.3"
+    react-tinacms-github "^0.41.0"
     uuid "^8.1.0"
 
 next-tinacms-markdown@^0.31.0:
   version "0.31.0"
   resolved "https://registry.yarnpkg.com/next-tinacms-markdown/-/next-tinacms-markdown-0.31.0.tgz#13dbd1761d5850891eea07eb02e34dacd0a4a168"
   integrity sha512-xhybA8NFJBR98KYGa60qw1k3AOAGJqtykiLAA/SKrBkHatvst9kbkiWcCIyRzvycmKAVSbbnNlCHMgH0QWA/XQ==
+  dependencies:
+    gray-matter "^4.0.2"
+    js-yaml "^3.13.1"
+
+next-tinacms-markdown@^0.41.0:
+  version "0.41.0"
+  resolved "https://registry.yarnpkg.com/next-tinacms-markdown/-/next-tinacms-markdown-0.41.0.tgz#d76e680b34336b6dd5721b5eaf6b9b4c8ce03cad"
+  integrity sha512-inx/RUWPYaGjDvATNxiafGuHhxzj/qAu8FdL02yPiQHpBdb2VZOO671xiT5O+Szk12/Oyp/340W2ImUohMFw7g==
   dependencies:
     gray-matter "^4.0.2"
     js-yaml "^3.13.1"
@@ -3488,6 +3494,15 @@ react-tinacms-github@^0.31.0:
     js-cookie "^2.2.1"
     next-tinacms-markdown "^0.31.0"
 
+react-tinacms-github@^0.41.0:
+  version "0.41.0"
+  resolved "https://registry.yarnpkg.com/react-tinacms-github/-/react-tinacms-github-0.41.0.tgz#e73800ff641ace6f4bf524de60527fd699c43dd4"
+  integrity sha512-es+a5ouY+AuLDws4z3YUWDvMG7yMzSudWKtmiJg+A26vfhDueRKnF6ayP7oXHtCgg1HgJ1MQvzeByPpFw0xBFw==
+  dependencies:
+    btoa "^1.2.1"
+    js-cookie "^2.2.1"
+    next-tinacms-markdown "^0.41.0"
+
 react-tinacms-inline@^0.31.0:
   version "0.31.0"
   resolved "https://registry.yarnpkg.com/react-tinacms-inline/-/react-tinacms-inline-0.31.0.tgz#5bf1317c6fdf6a8af44c221f45cc6c6b52e91d6d"
@@ -3496,14 +3511,13 @@ react-tinacms-inline@^0.31.0:
     react-dismissible "^1.3.0"
     react-textarea-autosize ">=7.1"
 
-react@16.13.1:
-  version "16.13.1"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
-  integrity sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w==
+react@^17.0.2:
+  version "17.0.2"
+  resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
+  integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
-    prop-types "^15.6.2"
 
 reactcss@^1.2.0:
   version "1.2.3"
